@@ -86,26 +86,6 @@ export function Footer({ onOpenGoogleSitesModal, onOpenContactModal }: FooterPro
               Investigadores Principales & Contacto
             </h4>
             <ul className="space-y-2 text-xs text-stone-400">
-              <li>
-                <button
-                  type="button"
-                  onClick={onOpenContactModal}
-                  className="hover:text-white flex items-center gap-1.5 transition-colors cursor-pointer text-left"
-                >
-                  <Mail className="w-3.5 h-3.5 text-[#8B1E24]" />
-                  <span>Contactar con Coordinación</span>
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={onOpenGoogleSitesModal}
-                  className="hover:text-white flex items-center gap-1.5 transition-colors cursor-pointer text-left"
-                >
-                  <Layers className="w-3.5 h-3.5 text-stone-400" />
-                  <span>Integración en Google Sites</span>
-                </button>
-              </li>
               {PRINCIPAL_INVESTIGATORS.map((ip) => (
                 <li key={ip.name}>
                   <a

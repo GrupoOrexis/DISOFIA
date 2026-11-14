@@ -110,7 +110,7 @@ export function InternationalNetworkSection() {
         </div>
 
         {/* Filters and Search Bar */}
-        <div className="bg-white p-5 rounded-lg border border-stone-200 mb-6 space-y-4 shadow-xs">
+        <div className="bg-white px-4 py-3 rounded-lg border border-stone-200 mb-6 shadow-xs">
           
           {/* Top row: Category Tabs + View Mode */}
           <div className="flex flex-wrap items-center justify-between gap-4">
@@ -154,66 +154,46 @@ export function InternationalNetworkSection() {
               </button>
             </div>
 
-            {/* View switcher */}
-            <div className="flex items-center border border-stone-200 rounded p-0.5 bg-stone-50">
-              <button
-                type="button"
-                onClick={() => setViewMode('table')}
-                className={`p-1.5 rounded transition-colors cursor-pointer ${
-                  viewMode === 'table' ? 'bg-white text-stone-900 shadow-xs' : 'text-stone-500 hover:text-stone-800'
-                }`}
-                title="Vista Tabla Académica"
-                aria-label="Vista Tabla Académica"
-              >
-                <TableIcon className="w-4 h-4" />
-              </button>
-              <button
-                type="button"
-                onClick={() => setViewMode('cards')}
-                className={`p-1.5 rounded transition-colors cursor-pointer ${
-                  viewMode === 'cards' ? 'bg-white text-stone-900 shadow-xs' : 'text-stone-500 hover:text-stone-800'
-                }`}
-                title="Vista Tarjetas"
-                aria-label="Vista Tarjetas"
-              >
-                <LayoutGrid className="w-4 h-4" />
-              </button>
-            </div>
+            {/* Right cluster: buscador + conmutador de vista */}
+            <div className="flex items-center gap-2">
+              <div className="relative w-44 sm:w-56">
+                <Search className="w-3.5 h-3.5 text-stone-400 absolute left-2.5 top-1/2 -translate-y-1/2" />
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Buscar por nombre o centro..."
+                  className="w-full pl-8 pr-3 py-1.5 text-xs bg-stone-50 border border-stone-200 rounded text-stone-800 focus:outline-none focus:ring-1 focus:ring-[#8B1E24]"
+                />
+              </div>
 
-          </div>
-
-          {/* Bottom row: Region Pills + Live Search Input */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-3 border-t border-stone-100">
-            <div className="flex flex-wrap items-center gap-1.5">
-              <span className="text-[11px] font-mono text-stone-400 uppercase tracking-wider mr-1">
-                Región:
-              </span>
-              {regions.map((reg) => (
+              {/* View switcher */}
+              <div className="flex items-center border border-stone-200 rounded p-0.5 bg-stone-50 shrink-0">
                 <button
-                  key={reg.id}
                   type="button"
-                  onClick={() => setSelectedRegion(reg.id)}
-                  className={`px-2.5 py-1 text-xs rounded transition-colors cursor-pointer ${
-                    selectedRegion === reg.id
-                      ? 'bg-stone-800 text-white font-medium'
-                      : 'text-stone-600 hover:text-stone-900 bg-stone-100 hover:bg-stone-200'
+                  onClick={() => setViewMode('table')}
+                  className={`p-1.5 rounded transition-colors cursor-pointer ${
+                    viewMode === 'table' ? 'bg-white text-stone-900 shadow-xs' : 'text-stone-500 hover:text-stone-800'
                   }`}
+                  title="Vista Tabla Académica"
+                  aria-label="Vista Tabla Académica"
                 >
-                  {reg.label}
+                  <TableIcon className="w-4 h-4" />
                 </button>
-              ))}
+                <button
+                  type="button"
+                  onClick={() => setViewMode('cards')}
+                  className={`p-1.5 rounded transition-colors cursor-pointer ${
+                    viewMode === 'cards' ? 'bg-white text-stone-900 shadow-xs' : 'text-stone-500 hover:text-stone-800'
+                  }`}
+                  title="Vista Tarjetas"
+                  aria-label="Vista Tarjetas"
+                >
+                  <LayoutGrid className="w-4 h-4" />
+                </button>
+              </div>
             </div>
 
-            <div className="relative sm:w-64">
-              <Search className="w-3.5 h-3.5 text-stone-400 absolute left-2.5 top-1/2 -translate-y-1/2" />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Buscar por nombre o centro..."
-                className="w-full pl-8 pr-3 py-1.5 text-xs bg-stone-50 border border-stone-200 rounded text-stone-800 focus:outline-none focus:ring-1 focus:ring-[#8B1E24]"
-              />
-            </div>
           </div>
 
         </div>

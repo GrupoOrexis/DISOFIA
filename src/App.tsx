@@ -6,6 +6,7 @@
 import { useState } from 'react';
 import { ActivitiesSection } from './components/ActivitiesSection';
 import { ContactModal } from './components/ContactModal';
+import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { GoogleSitesModal } from './components/GoogleSitesModal';
 import { Hero } from './components/Hero';
@@ -69,6 +70,9 @@ export default function App() {
 
         {/* 6. Datos Oficiales del Proyecto */}
         <OfficialDataSection />
+
+        {/* 7. Contacto */}
+        <ContactSection />
       </main>
 
       {/* Footer */}

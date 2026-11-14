@@ -93,69 +93,6 @@ export function PresentationSection() {
 
         </div>
 
-        {/* Expected Scientific Outputs Box */}
-        <div className="mt-12 bg-white border border-stone-200 rounded-lg p-6 sm:p-8 shadow-xs">
-          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#8B1E24] mb-2 font-mono">
-            <Sparkles className="w-4 h-4 text-[#8B1E24]" />
-            <span>Resultados Previstos e Impacto Científico</span>
-          </div>
-          <h3 className="font-serif font-bold text-xl text-stone-900 mb-6">
-            Compromisos de Producción Científica y Formación
-          </h3>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            
-            <div className="p-4 bg-stone-50 rounded border border-stone-200/80">
-              <div className="text-2xl font-serif font-bold text-[#8B1E24] mb-1">
-                ~20
-              </div>
-              <div className="text-xs font-semibold text-stone-900 mb-1">
-                Artículos Indexados
-              </div>
-              <p className="text-[11px] text-stone-600 leading-tight">
-                Publicaciones en revistas indexadas de referencia internacional (JCR / SJR / Scopus).
-              </p>
-            </div>
-
-            <div className="p-4 bg-stone-50 rounded border border-stone-200/80">
-              <div className="text-2xl font-serif font-bold text-[#8B1E24] mb-1">
-                2
-              </div>
-              <div className="text-xs font-semibold text-stone-900 mb-1">
-                Monografías Científicas
-              </div>
-              <p className="text-[11px] text-stone-600 leading-tight">
-                Estudios monográficos en editoriales académicas de primer nivel (SPI 1).
-              </p>
-            </div>
-
-            <div className="p-4 bg-stone-50 rounded border border-stone-200/80">
-              <div className="text-2xl font-serif font-bold text-[#8B1E24] mb-1">
-                1 + 1
-              </div>
-              <div className="text-xs font-semibold text-stone-900 mb-1">
-                Volumen y Traducción
-              </div>
-              <p className="text-[11px] text-stone-600 leading-tight">
-                1 volumen colectivo internacional y 1 traducción comentada crítica de <em>República I</em>.
-              </p>
-            </div>
-
-            <div className="p-4 bg-stone-50 rounded border border-stone-200/80">
-              <div className="text-2xl font-serif font-bold text-[#8B1E24] mb-1">
-                7
-              </div>
-              <div className="text-xs font-semibold text-stone-900 mb-1">
-                Tesis Doctorales
-              </div>
-              <p className="text-[11px] text-stone-600 leading-tight">
-                7 tesis doctorales en marcha directamente vinculadas a las líneas de DISOFIA.
-              </p>
-            </div>
-
-          </div>
-        </div>
-
       </div>
     </section>
   );

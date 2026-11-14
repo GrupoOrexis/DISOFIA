@@ -140,7 +140,7 @@ export function ResearchLinesSection() {
 
               <div className="mt-6 pt-4 border-t border-stone-200/60">
                 <p className="text-xs text-stone-500 italic">
-                  Investigación desarrollada conjuntamente por miembros del Equipo de Investigación (UNAV, UFV, UAM, UESD, UGR) y especialistas internacionales invitados.
+                  Investigación desarrollada conjuntamente por miembros del Equipo de Investigación (UNAV, UFV, UAM, UESD) y especialistas internacionales invitados.
                 </p>
               </div>
             </div>

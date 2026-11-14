@@ -31,7 +31,11 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
     <section className="relative overflow-hidden bg-gradient-to-b from-[#F4F3F0] via-[#ECEBE7] to-[#E3E2DE] text-slate-800 border-b-4 border-[#8B1E24]">
       {/* Subtle classical texture on background */}
       <div
-        className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            'repeating-linear-gradient(45deg, rgba(51,65,85,0.10) 0, rgba(51,65,85,0.10) 1px, transparent 1px, transparent 10px), repeating-linear-gradient(45deg, rgba(255,255,255,0.85) 5px, rgba(255,255,255,0.85) 6px, transparent 6px, transparent 10px), repeating-linear-gradient(-45deg, rgba(255,255,255,0.85) 5px, rgba(255,255,255,0.85) 6px, transparent 6px, transparent 10px), repeating-linear-gradient(45deg, rgba(139,30,36,0.12) 0, rgba(139,30,36,0.12) 1px, transparent 1px, transparent 30px), repeating-linear-gradient(-45deg, rgba(20,83,45,0.12) 0, rgba(20,83,45,0.12) 1px, transparent 1px, transparent 30px)',
+        }}
         aria-hidden="true"
       />
 
@@ -39,70 +43,42 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
         
         {/* Classical Frieze of Socrates across the Hero, positioned directly above the Project Title */}
         <figure className="w-full mb-6 sm:mb-8">
+          {/* Enlace discreto "Explorar Imagen": texto gris, sin fondo, encima del marco, a la derecha */}
+          <div className="flex justify-end mb-1.5">
+            <button
+              type="button"
+              onClick={() => setImageModalOpen(true)}
+              className="inline-flex items-center gap-1.5 text-[11px] font-mono text-stone-500 hover:text-stone-700 transition-colors cursor-pointer"
+              title="Ver relieve completo en alta resolución"
+            >
+              <Eye className="w-3.5 h-3.5" />
+              <span>Explorar Imagen</span>
+            </button>
+          </div>
           <div className="relative rounded-lg overflow-hidden bg-stone-950 border border-stone-700/80 shadow-2xl group">
             {/* Top architectural border accent */}
             <div className="h-0.5 bg-gradient-to-r from-stone-800 via-[#8B1E24] to-stone-800" />
 
             {/* Frieze Viewport: increased height to show upper architectural area */}
             {/* Frieze Viewport: adjusted framing to show the bodies of the characters */}
-            <div className="relative w-full h-48 sm:h-60 md:h-72 lg:h-80 overflow-hidden bg-stone-950 flex items-center justify-center">
+            <div className="relative w-full h-24 sm:h-28 md:h-36 lg:h-40 overflow-hidden bg-stone-950 flex items-center justify-center">
               <img
                 src={CANOVA_APOLOGY_URL}
                 alt="Friso: La apología de Sócrates ante los jueces — Antonio Canova (1790–1792)"
                 referrerPolicy="no-referrer"
                 style={imageFilterStyle}
-                className="w-full h-full object-cover object-[center_36%] transition-transform duration-700 group-hover:scale-[1.02]"
+                className="w-full h-full object-cover object-[center_34%] transition-transform duration-700 group-hover:scale-[1.02]"
               />
 
               {/* Subtle architectural lighting vignette */}
               <div className="absolute inset-0 bg-gradient-to-t from-stone-950/60 via-transparent to-transparent pointer-events-none" />
             </div>
-
-            {/* Action bar beneath the frieze: only the Explorar Imagen button on the right */}
-            <figcaption className="px-3.5 py-2 bg-stone-900/90 border-t border-stone-800/80 flex items-center justify-end">
-              <button
-                type="button"
-                onClick={() => setImageModalOpen(true)}
-                className="text-xs font-mono text-red-400 hover:text-red-300 inline-flex items-center gap-1.5 cursor-pointer transition-colors"
-                title="Ver relieve completo en alta resolución con guía iconográfica"
-              >
-                <Eye className="w-3.5 h-3.5" />
-                <span>Explorar Imagen</span>
-              </button>
-            </figcaption>
           </div>
         </figure>
 
         {/* Project Title and Header Presentation */}
         <div className="w-full space-y-4 mb-8 text-center flex flex-col items-center">
           <div className="w-full flex flex-col items-center">
-            <div className="w-full flex flex-wrap md:flex-nowrap items-center justify-between gap-3 mb-3">
-              <span
-                className="font-mono px-2.5 py-0.5 rounded bg-stone-900/90 border border-[#8B1E24]/80 shadow-xs shrink-0 whitespace-nowrap inline-flex items-center gap-2"
-                style={{ fontSize: '17px' }}
-              >
-                <span className="uppercase tracking-widest text-red-400 font-bold">
-                  {DISOFIA_METADATA.acronym}
-                </span>
-                <span className="text-stone-600 font-normal" aria-hidden="true">&middot;</span>
-                <span className="text-stone-300 font-semibold">
-                  {DISOFIA_METADATA.reference}
-                </span>
-              </span>
-              <span
-                className="font-mono text-slate-600 font-semibold shrink-0 whitespace-nowrap"
-                style={{ fontSize: '17px' }}
-              >
-                {DISOFIA_METADATA.period}
-              </span>
-              <span
-                className="text-slate-600 font-medium text-right shrink-0"
-                style={{ fontSize: '17px' }}
-              >
-                Universidad de Navarra &middot; Facultad de Filosofía y Letras &middot; Departamento de Filosofía
-              </span>
-            </div>
-
             <div
               className="tracking-widest uppercase font-semibold my-2 text-center flex items-center justify-center gap-3"
               style={{
@@ -113,7 +89,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
               }}
             >
               <span className="inline-block w-8 sm:w-10 h-[1.5px] bg-[#475569]/60" aria-hidden="true" />
-              <span>PROYECTO DE INVESTIGACIÓN</span>
+              <span>PROYECTO DE INVESTIGACIÓN &middot; {DISOFIA_METADATA.period}</span>
               <span className="inline-block w-8 sm:w-10 h-[1.5px] bg-[#475569]/60" aria-hidden="true" />
             </div>
 
@@ -132,6 +108,20 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
           >
             {DISOFIA_METADATA.executiveSummary}
           </p>
+
+          {/* Identificador del proyecto, centrado bajo el subtítulo */}
+          <div
+            className="inline-flex items-center justify-center gap-2"
+            style={{ fontSize: '14px', fontFamily: '"Plus Jakarta Sans", sans-serif' }}
+          >
+            <span className="uppercase tracking-widest text-[#8B1E24] font-bold">
+              {DISOFIA_METADATA.acronym}
+            </span>
+            <span className="text-slate-400 font-normal" aria-hidden="true">&middot;</span>
+            <span className="text-slate-600 font-normal">
+              {DISOFIA_METADATA.reference}
+            </span>
+          </div>
         </div>
 
         {/* Barra de navegación unificada en un solo panel continuo */}
@@ -197,13 +187,13 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
             {/* 2. 7 Investigadores */}
             <div className="relative p-2 sm:p-3 flex flex-col items-center justify-center text-center">
               <div className="text-2xl sm:text-3xl font-serif font-bold text-[#1E293B] tabular-nums text-center">
-                7 Investigadores
+                12 Investigadores
               </div>
               <div className="text-xs text-slate-600 uppercase tracking-wider mt-1 font-mono text-center">
-                UNAV, UAM, UFV, USD
+                2 IP · 5 Equipo · 5 Doctorales
               </div>
               <div className="text-[11px] text-slate-500 mt-0.5 text-center">
-                IPs y Equipo de Investigación
+                Vinculados al proyecto
               </div>
               {/* Red vertical divider on desktop */}
               <div
@@ -233,13 +223,13 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
             {/* 4. 5 Investigadores */}
             <div className="relative p-2 sm:p-3 flex flex-col items-center justify-center text-center">
               <div className="text-2xl sm:text-3xl font-serif font-bold text-[#1E293B] tabular-nums text-center">
-                5 Investigadores
+                49.000 €
               </div>
               <div className="text-xs text-slate-600 uppercase tracking-wider mt-1 font-mono text-center">
-                Doctorales
+                Presupuesto
               </div>
               <div className="text-[11px] text-slate-500 mt-0.5 text-center">
-                Nacionales e internacionales
+                Financiación del proyecto
               </div>
             </div>
           </div>

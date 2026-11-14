@@ -32,19 +32,6 @@
   },
   "principalInvestigators": [
     {
-      "name": "Daniel Doyle",
-      "title": "Doctor en Filosofía",
-      "academicPosition": "Profesor Contratado Doctor",
-      "orcid": "0000-0002-8959-5906",
-      "orcidUrl": "https://orcid.org/0000-0002-8959-5906",
-      "email": "ddoyle@unav.es",
-      "institution": "Universidad de Navarra (Facultad de Filosofía y Letras, Dpto. Filosofía)",
-      "institutionShort": "UNAV",
-      "role": "Investigador Principal 1 (IP1)",
-      "location": "Pamplona, España",
-      "specialty": "Filosofía Griega, Dialéctica Socrática, Hermenéutica Filosófica"
-    },
-    {
       "name": "Miquel Solans",
       "title": "Doctor en Filosofía",
       "academicPosition": "Profesor Contratado Doctor",
@@ -53,21 +40,34 @@
       "email": "msolans@unav.es",
       "institution": "Universidad de Navarra (Facultad de Filosofía y Letras, Dpto. Filosofía)",
       "institutionShort": "UNAV",
-      "role": "Investigador Principal 2 (IP2)",
+      "role": "Investigador Principal 1 (IP1)",
       "location": "Pamplona, España",
       "specialty": "Filosofía Antigua, Sócrates y Platonismo, Filosofía como Forma de Vida"
+    },
+    {
+      "name": "Daniel Doyle",
+      "title": "Doctor en Filosofía",
+      "academicPosition": "Profesor Contratado Doctor",
+      "orcid": "0000-0001-5751-4836",
+      "orcidUrl": "https://orcid.org/0000-0001-5751-4836",
+      "email": "ddoyle@unav.es",
+      "institution": "Universidad de Navarra (Facultad de Filosofía y Letras, Dpto. Filosofía)",
+      "institutionShort": "UNAV",
+      "role": "Investigador Principal 2 (IP2)",
+      "location": "Pamplona, España",
+      "specialty": "Filosofía Griega, Dialéctica Socrática, Hermenéutica Filosófica"
     }
   ],
   "researchTeam": [
     {
-      "name": "Miguel Martí Sánchez",
-      "institution": "Universidad Francisco de Vitoria",
-      "institutionShort": "UFV",
+      "name": "Iván de los Ríos",
+      "institution": "Universidad Autónoma de Madrid",
+      "institutionShort": "UAM",
       "role": "Equipo de Investigación (EI)",
       "location": "Madrid, España",
-      "specialty": "Ética Clásica, Dialéctica Socrática, Filosofía Práctica",
-      "orcid": "0000-0003-1575-3745",
-      "orcidUrl": "https://orcid.org/0000-0003-1575-3745"
+      "specialty": "Filosofía Helenística, Ética Antigua, Cinismo y Estoicismo",
+      "orcid": "0000-0002-3804-5402",
+      "orcidUrl": "https://orcid.org/0000-0002-3804-5402"
     },
     {
       "name": "David Torrijos Castrillejo",
@@ -80,24 +80,14 @@
       "orcidUrl": "https://orcid.org/0000-0003-2005-5634"
     },
     {
-      "name": "Marcela Duque Ramírez",
+      "name": "Miguel Martí Sánchez",
       "institution": "Universidad Francisco de Vitoria",
       "institutionShort": "UFV",
       "role": "Equipo de Investigación (EI)",
       "location": "Madrid, España",
-      "specialty": "Antropología Filosófica, Poética y Afectividad",
-      "orcid": "0009-0002-7634-124X",
-      "orcidUrl": "https://orcid.org/0009-0002-7634-124X"
-    },
-    {
-      "name": "Iván de los Ríos",
-      "institution": "Universidad Autónoma de Madrid",
-      "institutionShort": "UAM",
-      "role": "Equipo de Investigación (EI)",
-      "location": "Madrid, España",
-      "specialty": "Filosofía Helenística, Ética Antigua, Cinismo y Estoicismo",
-      "orcid": "0000-0002-3804-5402",
-      "orcidUrl": "https://orcid.org/0000-0002-3804-5402"
+      "specialty": "Ética Clásica, Dialéctica Socrática, Filosofía Práctica",
+      "orcid": "0000-0003-1575-3745",
+      "orcidUrl": "https://orcid.org/0000-0003-1575-3745"
     },
     {
       "name": "Vojtech Kolomy",
@@ -108,6 +98,16 @@
       "specialty": "Filosofía Antigua, Dialéctica Platónica",
       "orcid": "0000-0003-3064-3480",
       "orcidUrl": "https://orcid.org/0000-0003-3064-3480"
+    },
+    {
+      "name": "Marcela Duque Ramírez",
+      "institution": "Universidad Francisco de Vitoria",
+      "institutionShort": "UFV",
+      "role": "Equipo de Investigación (EI)",
+      "location": "Madrid, España",
+      "specialty": "Antropología Filosófica, Poética y Afectividad",
+      "orcid": "0009-0002-7634-124X",
+      "orcidUrl": "https://orcid.org/0009-0002-7634-124X"
     }
   ],
   "workTeam": [
@@ -327,13 +327,13 @@
     },
     {
       "name": "Mikel Martínez Cirero",
-      "institution": "Universidad de Navarra",
-      "institutionShort": "UNAV",
+      "institution": "Grupo VCC · Instituto Cultura y Sociedad (ICS)",
+      "institutionShort": "ICS · UNAV",
       "country": "España",
       "region": "España",
-      "category": "Investigador en Formación / Predoc",
+      "category": "Colaborador Internacional",
       "gender": "M",
-      "isPhdCandidate": true,
+      "isPhdCandidate": false,
       "flag": "🇪🇸"
     },
     {
@@ -487,5 +487,68 @@
       "location": "Universidad Francisco de Vitoria, Madrid (España)",
       "status": "En preparación"
     }
-  ]
+  ],
+  "seminarProgram": [
+    {
+      "n": 1,
+      "work": "Callard, «Sócrates al descubierto» — Parte II: «El método socrático»",
+      "speaker": "Miguel Martí",
+      "affiliation": "UFV",
+      "date": "4 nov 2026 · 12:00–13:30"
+    },
+    {
+      "n": 2,
+      "work": "Futter, «Socrates' Search for Wisdom. An Exegetical Theory» — Caps. 2 «Argument and Inquiry», 10 «Meno» y 21 «An Art of Living»",
+      "speaker": "Miquel Solans",
+      "affiliation": "UNAV",
+      "date": "16 dic 2026 · 12:00–13:30"
+    },
+    {
+      "n": 3,
+      "work": "Hadot, «¿Qué es la filosofía antigua?» — Primera parte: «La figura de Sócrates»",
+      "speaker": "María Sáez",
+      "affiliation": "UNAV",
+      "date": "ene 2027"
+    },
+    {
+      "n": 4,
+      "work": "Hadot, «¿Qué es la filosofía antigua?» — Segunda parte: «Las escuelas»",
+      "speaker": "David Torrijos",
+      "affiliation": "UESD",
+      "date": "feb 2027"
+    },
+    {
+      "n": 5,
+      "work": "Hadot, «Ejercicios espirituales» — Cap. «Ejercicios espirituales»",
+      "speaker": "Mikel Martínez",
+      "affiliation": "DISOFIA",
+      "date": "mar 2027"
+    },
+    {
+      "n": 6,
+      "work": "Hadot, «Ejercicios espirituales» — Cap. sobre Marco Aurelio",
+      "speaker": "Daniel Doyle",
+      "affiliation": "UNAV",
+      "date": "abr 2027"
+    },
+    {
+      "n": 7,
+      "work": "Hadot, «Ejercicios espirituales» — Caps. «Conversión» y «Filosofía como forma de vida»",
+      "speaker": "Iván de los Ríos",
+      "affiliation": "UAM",
+      "date": "may 2027"
+    },
+    {
+      "n": 8,
+      "work": "Cooper, «Pursuits of Wisdom» — «Stoicism»",
+      "speaker": "Daniel Doyle",
+      "affiliation": "UNAV",
+      "date": "jun 2027"
+    }
+  ],
+  "seminarInfo": {
+    "course": "Curso 2026–2027",
+    "location": "Seminario del Departamento de Filosofía (2280) · Universidad de Navarra",
+    "contacts": "Daniel Doyle (ddoyle@unav.es) · Miquel Solans (msolans@unav.es)"
+  }
 }

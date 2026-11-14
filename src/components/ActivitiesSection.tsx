@@ -1,16 +1,25 @@
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 import {
   BookMarked,
   Calendar,
   CalendarPlus,
+  ChevronDown,
   Clock,
-  Download,
+  Globe2,
   Mail,
   MapPin,
-  Sparkles,
+  Megaphone,
+  Plane,
+  Presentation,
   User,
+  Users,
 } from 'lucide-react';
-import { INAUGURAL_SESSION, READING_LIST, WORKSHOPS } from '../data/disofiaData';
+import {
+  INAUGURAL_SESSION,
+  SEMINAR_INFO,
+  SEMINAR_PROGRAM,
+  WORKSHOPS,
+} from '../data/disofiaData';
 import { generateICS } from '../utils/helpers';
 
 interface ActivitiesSectionProps {
@@ -18,7 +27,10 @@ interface ActivitiesSectionProps {
 }
 
 export function ActivitiesSection({ onOpenContactModal }: ActivitiesSectionProps) {
+  const [open, setOpen] = useState<string>('seminarios');
   const [downloadSuccess, setDownloadSuccess] = useState(false);
+
+  const toggle = (id: string) => setOpen((prev) => (prev === id ? '' : id));
 
   const handleDownloadICS = () => {
     const icsContent = generateICS();
@@ -31,183 +43,203 @@ export function ActivitiesSection({ onOpenContactModal }: ActivitiesSectionProps
     link.click();
     document.body.removeChild(link);
     URL.revokeObjectURL(url);
-
     setDownloadSuccess(true);
     setTimeout(() => setDownloadSuccess(false), 4000);
   };
 
+  const row = (
+    id: string,
+    icon: ReactNode,
+    title: string,
+    subtitle: string,
+    content: ReactNode,
+  ) => (
+    <div className="border border-stone-200 rounded-lg bg-white shadow-xs overflow-hidden">
+      <button
+        type="button"
+        onClick={() => toggle(id)}
+        aria-expanded={open === id}
+        className="w-full flex items-center gap-4 px-5 sm:px-6 py-4 text-left hover:bg-stone-50 transition-colors cursor-pointer"
+      >
+        <span className="w-10 h-10 rounded-md bg-[#8B1E24]/10 text-[#8B1E24] flex items-center justify-center shrink-0">
+          {icon}
+        </span>
+        <span className="flex-1 min-w-0">
+          <span className="block font-serif font-bold text-base sm:text-xl text-stone-900 leading-tight">
+            {title}
+          </span>
+          {subtitle && <span className="block text-xs text-stone-500 mt-0.5">{subtitle}</span>}
+        </span>
+        <ChevronDown
+          className={`w-5 h-5 text-stone-400 shrink-0 transition-transform ${open === id ? 'rotate-180' : ''}`}
+        />
+      </button>
+      {open === id && (
+        <div className="px-5 sm:px-6 pb-6 pt-2 border-t border-stone-100">{content}</div>
+      )}
+    </div>
+  );
+
   return (
     <section id="actividades" className="py-16 sm:py-20 border-b border-stone-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Header */}
-        <div className="mb-12">
+        <div className="mb-10">
           <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#8B1E24] mb-2 font-mono">
             <span>Agenda y Espacio Dialógico</span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-stone-900 tracking-tight">
-            4. Actividades en Curso y Seminarios
+            4. Actividades del proyecto
           </h2>
           <p className="text-stone-600 mt-2 max-w-3xl text-sm sm:text-base">
-            El Seminario Permanente de Lectura y los Workshops Internacionales constituyen el núcleo vivo de discusión, debate exegético y colaboración científica de DISOFIA.
+            Las actividades de DISOFIA articulan la discusión científica, la formación y la proyección
+            internacional del proyecto. Despliega cada apartado para ver su contenido.
           </p>
           <div className="w-16 h-1 bg-[#8B1E24] mt-3"></div>
         </div>
 
-        {/* Highlight Card: Próxima Sesión Inaugural */}
-        <div className="bg-[#FAF7F2] border border-[#EBE3D5] rounded-lg p-6 sm:p-8 shadow-xs mb-14 relative overflow-hidden">
-          <div className="absolute top-0 right-0 bg-[#8B1E24] text-white text-[11px] font-mono font-semibold px-4 py-1 uppercase tracking-wider rounded-bl">
-            Próxima Convocatoria
-          </div>
+        <div className="space-y-4">
 
-          <div className="max-w-4xl">
-            <div className="flex items-center gap-2 text-xs font-mono text-[#8B1E24] font-bold uppercase tracking-wider mb-2">
-              <Calendar className="w-4 h-4" />
-              <span>Seminario Permanente de Lectura DISOFIA (Curso 2026–2027)</span>
-            </div>
-
-            <h3 className="text-2xl sm:text-3xl font-serif font-bold text-stone-900 mb-3">
-              {INAUGURAL_SESSION.title}
-            </h3>
-
-            <p className="text-stone-700 text-sm sm:text-base leading-relaxed mb-6">
-              {INAUGURAL_SESSION.description}
-            </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-4 my-2 border-y border-stone-200/80 text-xs sm:text-sm">
-              <div className="space-y-2">
-                <div className="flex items-center gap-2 text-stone-800">
-                  <Clock className="w-4 h-4 text-[#8B1E24] shrink-0" />
-                  <span className="font-semibold">{INAUGURAL_SESSION.date}</span>
-                  <span className="text-stone-500 font-mono">({INAUGURAL_SESSION.time})</span>
-                </div>
-                <div className="flex items-center gap-2 text-stone-700">
-                  <MapPin className="w-4 h-4 text-[#8B1E24] shrink-0" />
-                  <span>{INAUGURAL_SESSION.room} &middot; {INAUGURAL_SESSION.location}</span>
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <div className="flex items-center gap-2 text-stone-800">
-                  <BookMarked className="w-4 h-4 text-[#8B1E24] shrink-0" />
-                  <span>Lectura: <strong>«{INAUGURAL_SESSION.book}»</strong> ({INAUGURAL_SESSION.publisherYear})</span>
-                </div>
-                <div className="flex items-center gap-2 text-stone-700">
-                  <User className="w-4 h-4 text-[#8B1E24] shrink-0" />
-                  <span>Ponente: <strong>{INAUGURAL_SESSION.speaker}</strong> ({INAUGURAL_SESSION.speakerAffiliation})</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Action Buttons */}
-            <div className="flex flex-wrap items-center gap-3 pt-4">
-              <button
-                type="button"
-                onClick={handleDownloadICS}
-                className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#8B1E24] hover:bg-[#6C151A] text-white text-xs font-semibold rounded shadow-xs transition-colors cursor-pointer"
-              >
-                <CalendarPlus className="w-4 h-4" />
-                <span>{downloadSuccess ? '¡Guardado en calendario!' : 'Añadir a mi Calendario (.ics)'}</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={onOpenContactModal}
-                className="inline-flex items-center gap-2 px-4 py-2.5 bg-white hover:bg-stone-50 text-stone-800 text-xs font-semibold rounded border border-stone-300 shadow-xs transition-colors cursor-pointer"
-              >
-                <Mail className="w-4 h-4 text-[#8B1E24]" />
-                <span>Solicitar Asistencia o Información</span>
-              </button>
-
-              <span className="text-xs text-stone-500 ml-auto pt-2 sm:pt-0">
-                Coordinación: Daniel Doyle (IP2 · <a href="mailto:ddoyle@unav.es" className="underline hover:text-stone-800">ddoyle@unav.es</a>) & Miquel Solans (IP1 · <a href="mailto:msolans@unav.es" className="underline hover:text-stone-800">msolans@unav.es</a>)
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* Programa y Lecturas del Seminario */}
-        <div className="mb-14">
-          <h3 className="font-serif font-bold text-xl sm:text-2xl text-stone-900 mb-2">
-            Programa y Lecturas del Seminario Permanente
-          </h3>
-          <p className="text-stone-600 text-sm mb-6">
-            Obras de referencia para las sesiones ordinarias durante el curso académico 2026–2027.
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {READING_LIST.map((item, idx) => (
-              <div
-                key={item.id}
-                className="bg-white p-5 rounded border border-stone-200 hover:border-stone-300 transition-colors shadow-xs flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between text-[11px] font-mono text-stone-400 mb-2">
-                    <span>SESIÓN {idx + 1}</span>
-                    <span className="text-[#8B1E24] font-medium">{item.type}</span>
+          {/* 1. Workshops y congresos internacionales */}
+          {row(
+            'workshops',
+            <Presentation className="w-5 h-5" />,
+            'Organización de workshops y congresos internacionales',
+            'Encuentros científicos propios del proyecto',
+            <div>
+              <p className="text-stone-600 text-sm mb-6">
+                DISOFIA organiza workshops y congresos internacionales como foros de puesta en común de los
+                avances del proyecto con la red de colaboradores y los especialistas invitados.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {WORKSHOPS.map((ws) => (
+                  <div
+                    key={ws.id}
+                    className="bg-stone-50 p-6 rounded border border-stone-200 hover:border-[#8B1E24]/40 transition-colors"
+                  >
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-xs font-mono font-bold text-[#8B1E24] uppercase tracking-wider">
+                        {ws.edition}
+                      </span>
+                      <span className="text-[11px] font-medium bg-white text-stone-700 px-2.5 py-0.5 rounded border border-stone-200">
+                        {ws.status}
+                      </span>
+                    </div>
+                    <h4 className="font-serif font-bold text-lg text-stone-900 mb-2">{ws.title}</h4>
+                    <p className="text-xs sm:text-sm text-stone-600 mb-4 leading-relaxed">
+                      <strong>Tema:</strong> {ws.topic}
+                    </p>
+                    <div className="pt-3 border-t border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs text-stone-500">
+                      <span className="flex items-center gap-1.5 font-medium text-stone-700">
+                        <Calendar className="w-3.5 h-3.5 text-[#8B1E24]" />
+                        <span>{ws.date}</span>
+                      </span>
+                      <span className="flex items-center gap-1.5">
+                        <MapPin className="w-3.5 h-3.5 text-stone-400" />
+                        <span>{ws.location}</span>
+                      </span>
+                    </div>
                   </div>
-                  <h4 className="font-serif font-bold text-base text-stone-900 mb-1 leading-snug">
-                    {item.title}
-                  </h4>
-                  <p className="text-xs text-stone-600 mb-2 font-medium">
-                    {item.author} &middot; <span className="text-stone-500">{item.editorial}, {item.year}</span>
-                  </p>
-                  <p className="text-xs text-stone-500 leading-relaxed italic">
-                    {item.notes}
-                  </p>
+                ))}
+              </div>
+            </div>,
+          )}
+
+          {/* 2. Seminarios de lectura e investigación (con programa desplegable) */}
+          {row(
+            'seminarios',
+            <BookMarked className="w-5 h-5" />,
+            'Seminarios de lectura e investigación',
+            `Seminario Permanente de Lectura DISOFIA · ${SEMINAR_INFO.course}`,
+            <div>
+              {/* Programa completo del seminario */}
+              <h4 className="font-serif font-bold text-lg text-stone-900 mb-1">
+                Programa del Seminario de Lectura {SEMINAR_INFO.course.replace('Curso ', '')}
+              </h4>
+              <p className="text-stone-600 text-sm mb-4">
+                Calendario de sesiones ordinarias del seminario permanente de lectura.
+              </p>
+              <div className="overflow-x-auto rounded-lg border border-stone-200">
+                <table className="w-full text-sm border-collapse bg-white">
+                  <thead>
+                    <tr className="text-left text-[11px] uppercase tracking-wider font-mono text-stone-500 bg-stone-50 border-b border-stone-200">
+                      <th className="py-2.5 px-3 w-10">Nº</th>
+                      <th className="py-2.5 px-3">Obra y lectura</th>
+                      <th className="py-2.5 px-3">Expositor</th>
+                      <th className="py-2.5 px-3 whitespace-nowrap">Fecha</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {SEMINAR_PROGRAM.map((s) => (
+                      <tr key={s.n} className="border-b border-stone-100 last:border-0 align-top hover:bg-stone-50/60">
+                        <td className="py-3 px-3 font-mono text-[#8B1E24] font-bold">
+                          {String(s.n).padStart(2, '0')}
+                        </td>
+                        <td className="py-3 px-3 text-stone-800 leading-snug">{s.work}</td>
+                        <td className="py-3 px-3 whitespace-nowrap">
+                          <span className="font-semibold text-stone-900">{s.speaker}</span>
+                          <span className="block text-xs text-stone-500">{s.affiliation}</span>
+                        </td>
+                        <td className="py-3 px-3 text-stone-700 whitespace-nowrap">{s.date}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-stone-600">
+                <div className="flex items-start gap-2">
+                  <MapPin className="w-3.5 h-3.5 text-[#8B1E24] mt-0.5 shrink-0" />
+                  <span>{SEMINAR_INFO.location}</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <Mail className="w-3.5 h-3.5 text-[#8B1E24] mt-0.5 shrink-0" />
+                  <span>Más información: {SEMINAR_INFO.contacts}</span>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>,
+          )}
+
+          {/* 3. Participación en congresos internacionales */}
+          {row(
+            'congresos',
+            <Globe2 className="w-5 h-5" />,
+            'Participación en congresos internacionales',
+            'Presentación de resultados en foros científicos',
+            <p className="text-stone-600 text-sm sm:text-base leading-relaxed">
+              Los miembros del equipo presentan los avances y resultados del proyecto en congresos, coloquios
+              y jornadas nacionales e internacionales de filosofía antigua y de la filosofía como forma de vida,
+              reforzando el diálogo con otros grupos y líneas de investigación afines.
+            </p>,
+          )}
+
+          {/* 4. Estancias de investigación y redes */}
+          {row(
+            'estancias',
+            <Plane className="w-5 h-5" />,
+            'Estancias de investigación y creación de redes internacionales de colaboración',
+            'Movilidad y vertebración de la red científica',
+            <p className="text-stone-600 text-sm sm:text-base leading-relaxed">
+              El proyecto contempla estancias de investigación en centros de referencia y la consolidación de
+              una red internacional de colaboración con investigadores y grupos que trabajan sobre Sócrates,
+              la dialéctica y la filosofía como forma de vida.
+            </p>,
+          )}
+
+          {/* 5. Divulgación y difusión */}
+          {row(
+            'divulgacion',
+            <Megaphone className="w-5 h-5" />,
+            'Divulgación y difusión de los resultados del proyecto',
+            'Transferencia a la comunidad científica y al público general',
+            <p className="text-stone-600 text-sm sm:text-base leading-relaxed">
+              Difusión de los resultados a través de publicaciones académicas, actividades de transferencia y
+              acciones de divulgación dirigidas tanto a la comunidad científica como al público general,
+              para acercar el pensamiento socrático y la filosofía antigua a un público amplio.
+            </p>,
+          )}
+
         </div>
-
-        {/* Congresos y Workshops Previstos */}
-        <div>
-          <h3 className="font-serif font-bold text-xl sm:text-2xl text-stone-900 mb-2">
-            Congresos y Workshops Internacionales
-          </h3>
-          <p className="text-stone-600 text-sm mb-6">
-            Encuentros internacionales periódicos para la puesta en común de avances científicos con los colaboradores de la red.
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {WORKSHOPS.map((ws) => (
-              <div
-                key={ws.id}
-                className="bg-white p-6 rounded border border-stone-200 hover:border-[#8B1E24]/40 transition-colors shadow-xs"
-              >
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono font-bold text-[#8B1E24] uppercase tracking-wider">
-                    {ws.edition}
-                  </span>
-                  <span className="text-[11px] font-medium bg-stone-100 text-stone-700 px-2.5 py-0.5 rounded">
-                    {ws.status}
-                  </span>
-                </div>
-
-                <h4 className="font-serif font-bold text-lg text-stone-900 mb-2">
-                  {ws.title}
-                </h4>
-
-                <p className="text-xs sm:text-sm text-stone-600 mb-4 leading-relaxed">
-                  <strong>Tema:</strong> {ws.topic}
-                </p>
-
-                <div className="pt-3 border-t border-stone-100 flex flex-wrap items-center justify-between gap-2 text-xs text-stone-500">
-                  <span className="flex items-center gap-1.5 font-medium text-stone-700">
-                    <Calendar className="w-3.5 h-3.5 text-[#8B1E24]" />
-                    <span>{ws.date}</span>
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-stone-400" />
-                    <span>{ws.location}</span>
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
       </div>
     </section>
   );

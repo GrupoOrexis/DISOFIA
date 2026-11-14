@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Layers, Menu, X } from 'lucide-react';
+import { Layers, Mail, Menu, X } from 'lucide-react';
 
 interface NavbarProps {
   onOpenGoogleSitesModal: () => void;
@@ -10,12 +10,13 @@ export function Navbar({ onOpenGoogleSitesModal, onOpenContactModal }: NavbarPro
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { label: 'Presentación', href: '#presentacion' },
-    { label: 'Líneas', href: '#lineas' },
-    { label: 'Equipo', href: '#equipo' },
-    { label: 'Red Internacional', href: '#colaboradores' },
-    { label: 'Seminario', href: '#actividades' },
-    { label: 'Ficha Oficial', href: '#datos' },
+    { label: 'Presentación', href: '#presentacion', external: false },
+    { label: 'Líneas', href: '#lineas', external: false },
+    { label: 'Equipo', href: '#equipo', external: false },
+    { label: 'Red Internacional', href: '#colaboradores', external: false },
+    { label: 'Actividades', href: '#actividades', external: false },
+    { label: 'Ficha Oficial', href: '#datos', external: false },
+    { label: 'Grupo Órexis', href: 'https://portalcientifico.unav.edu/grupos/62169/detalle', external: true },
   ];
 
   return (
@@ -45,12 +46,23 @@ export function Navbar({ onOpenGoogleSitesModal, onOpenContactModal }: NavbarPro
               <a
                 key={link.href}
                 href={link.href}
+                target={link.external ? '_blank' : undefined}
+                rel={link.external ? 'noopener noreferrer' : undefined}
                 className="hover:text-white hover:underline underline-offset-8 decoration-[#8B1E24] decoration-2 transition-all whitespace-nowrap shrink-0"
               >
                 {link.label}
               </a>
             ))}
           </nav>
+
+          {/* Zone 3: Contacto CTA */}
+          <a
+            href="#contacto"
+            className="hidden lg:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded bg-[#8B1E24] hover:bg-[#6C151A] text-white text-sm font-semibold transition-colors whitespace-nowrap shrink-0"
+          >
+            <Mail className="w-4 h-4" />
+            <span>Contacto</span>
+          </a>
 
           {/* Mobile hamburger button */}
           <div className="lg:hidden flex items-center shrink-0">
@@ -75,6 +87,8 @@ export function Navbar({ onOpenGoogleSitesModal, onOpenContactModal }: NavbarPro
               <a
                 key={link.href}
                 href={link.href}
+                target={link.external ? '_blank' : undefined}
+                rel={link.external ? 'noopener noreferrer' : undefined}
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3 py-2 text-sm text-stone-200 hover:bg-slate-800 rounded font-medium"
               >
@@ -96,16 +110,14 @@ export function Navbar({ onOpenGoogleSitesModal, onOpenContactModal }: NavbarPro
               <span>Guía de inserción en Google Sites</span>
             </button>
 
-            <button
-              type="button"
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenContactModal();
-              }}
-              className="w-full text-center px-4 py-2 text-xs font-medium text-stone-300 bg-stone-800/60 rounded"
+            <a
+              href="#contacto"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full flex items-center justify-center gap-2 px-4 py-2 text-xs font-semibold text-white bg-[#8B1E24] rounded"
             >
-              Contactar con Coordinación
-            </button>
+              <Mail className="w-4 h-4" />
+              <span>Contacto</span>
+            </a>
           </div>
         </div>
       )}

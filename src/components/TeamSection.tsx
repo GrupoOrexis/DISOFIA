@@ -80,18 +80,9 @@ export function TeamSection({ onOpenContactModal }: TeamSectionProps) {
                     </span>
                   </div>
 
-                  <p className="text-xs text-stone-600 mb-4 leading-relaxed">
+                  <p className="text-xs text-stone-600 mb-5 leading-relaxed">
                     {ip.institution}
                   </p>
-
-                  <div className="bg-stone-50 p-3 rounded border border-stone-200/70 mb-5">
-                    <span className="text-[11px] font-mono uppercase text-stone-500 font-semibold block mb-0.5">
-                      Especialidad investigadora
-                    </span>
-                    <p className="text-xs text-stone-700 italic">
-                      «{ip.specialty}»
-                    </p>
-                  </div>
                 </div>
 
                 <div className="pt-4 border-t border-stone-100 flex flex-wrap items-center justify-between gap-3 text-xs">
@@ -165,15 +156,9 @@ export function TeamSection({ onOpenContactModal }: TeamSectionProps) {
                     </span>
                   </div>
 
-                  <p className="text-xs text-stone-600 mb-2 font-medium">
+                  <p className="text-xs text-stone-600 mb-4 font-medium">
                     {member.institution}
                   </p>
-
-                  {member.specialty && (
-                    <p className="text-xs text-stone-500 italic mb-4 leading-relaxed">
-                      «{member.specialty}»
-                    </p>
-                  )}
                 </div>
 
                 <div className="pt-3 border-t border-stone-100 flex items-center justify-between text-xs text-stone-500">

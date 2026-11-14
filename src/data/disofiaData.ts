@@ -128,3 +128,20 @@ export const RESEARCH_LINES = content.researchLines as unknown as ResearchLine[]
 export const INAUGURAL_SESSION = content.inauguralSession as unknown as SeminarSession;
 export const READING_LIST = content.readingList as unknown as ReadingItem[];
 export const WORKSHOPS = content.workshops as unknown as WorkshopItem[];
+
+export interface SeminarProgramItem {
+  n: number;
+  work: string;
+  speaker: string;
+  affiliation: string;
+  date: string;
+}
+
+export interface SeminarInfo {
+  course: string;
+  location: string;
+  contacts: string;
+}
+
+export const SEMINAR_PROGRAM = content.seminarProgram as unknown as SeminarProgramItem[];
+export const SEMINAR_INFO = content.seminarInfo as unknown as SeminarInfo;
