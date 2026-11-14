@@ -74,7 +74,7 @@ export function OfficialLogosBar() {
             <div className="flex items-center gap-3 text-left">
               <div className="h-10 sm:h-11 w-9 sm:w-10 rounded-md bg-white border border-stone-200 shadow-xs flex items-center justify-center p-1 shrink-0">
                 <img
-                  src="/assets/aistudio/unav_seal_red.png"
+                  src="assets/aistudio/unav_seal_red.png"
                   alt="Escudo de la Universidad de Navarra"
                   className="h-full w-auto object-contain"
                 />

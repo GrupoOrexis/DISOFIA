@@ -8,7 +8,7 @@ interface HeroProps {
   onNavigate?: (id: string) => void;
 }
 
-const CANOVA_APOLOGY_URL = '/assets/aistudio/Canova_-_The_apology_of_Socrates_in_front_of_the_judges__1790-1792_ad7bd0e9.jpg';
+const CANOVA_APOLOGY_URL = 'assets/aistudio/Canova_-_The_apology_of_Socrates_in_front_of_the_judges__1790-1792_ad7bd0e9.jpg';
 
 export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps) {
   const [imageModalOpen, setImageModalOpen] = useState(false);
