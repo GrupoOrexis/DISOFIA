@@ -19,7 +19,7 @@ export function Navbar({ onOpenGoogleSitesModal, onOpenContactModal }: NavbarPro
   ];
 
   return (
-    <header className="sticky top-0 z-40 bg-[#0F172A] border-b border-stone-800 text-stone-100 shadow-md">
+    <header className="sticky top-0 z-40 bg-[#2B2927] border-b border-stone-700 text-stone-100 shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-8 h-18">
           
@@ -69,7 +69,7 @@ export function Navbar({ onOpenGoogleSitesModal, onOpenContactModal }: NavbarPro
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-slate-900 border-b border-stone-800 px-4 pt-2 pb-6 space-y-3">
+        <div className="lg:hidden bg-[#2B2927] border-b border-stone-700 px-4 pt-2 pb-6 space-y-3">
           <div className="flex flex-col space-y-2 pt-2">
             {navLinks.map((link) => (
               <a

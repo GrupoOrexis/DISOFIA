@@ -28,10 +28,10 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
   const imageFilterStyle = { filter: 'grayscale(92%) contrast(1.28) brightness(0.92) saturate(0.1)' };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#080D18] via-[#0D1524] to-[#141E2F] text-white border-b-4 border-[#8B1E24]">
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#F4F3F0] via-[#ECEBE7] to-[#E3E2DE] text-slate-800 border-b-4 border-[#8B1E24]">
       {/* Subtle classical texture on background */}
       <div
-        className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"
+        className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"
         aria-hidden="true"
       />
 
@@ -90,13 +90,13 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
                 </span>
               </span>
               <span
-                className="font-mono text-stone-300 font-semibold shrink-0 whitespace-nowrap"
+                className="font-mono text-slate-600 font-semibold shrink-0 whitespace-nowrap"
                 style={{ fontSize: '17px' }}
               >
                 {DISOFIA_METADATA.period}
               </span>
               <span
-                className="text-stone-300 font-medium text-right shrink-0"
+                className="text-slate-600 font-medium text-right shrink-0"
                 style={{ fontSize: '17px' }}
               >
                 Universidad de Navarra &middot; Facultad de Filosofía y Letras &middot; Departamento de Filosofía
@@ -108,17 +108,17 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
               style={{
                 fontFamily: '"Plus Jakarta Sans", sans-serif',
                 fontSize: '19px',
-                color: '#cbc9c8',
+                color: '#475569',
                 height: '34.5px',
               }}
             >
-              <span className="inline-block w-8 sm:w-10 h-[1.5px] bg-[#cbc9c8]/90" aria-hidden="true" />
+              <span className="inline-block w-8 sm:w-10 h-[1.5px] bg-[#475569]/60" aria-hidden="true" />
               <span>PROYECTO DE INVESTIGACIÓN</span>
-              <span className="inline-block w-8 sm:w-10 h-[1.5px] bg-[#cbc9c8]/90" aria-hidden="true" />
+              <span className="inline-block w-8 sm:w-10 h-[1.5px] bg-[#475569]/60" aria-hidden="true" />
             </div>
 
             <h1
-              className="font-serif font-bold text-white tracking-tight leading-[1.1] w-full text-center"
+              className="font-serif font-bold text-[#1E293B] tracking-tight leading-[1.1] w-full text-center"
               style={{ fontSize: '65px' }}
             >
               {DISOFIA_METADATA.title}
@@ -127,7 +127,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
 
           {/* Executive Summary */}
           <p
-            className="text-stone-200 font-light leading-relaxed mx-auto text-center"
+            className="text-slate-600 font-light leading-relaxed mx-auto text-center"
             style={{ fontSize: '20px', width: '918px', maxWidth: '100%' }}
           >
             {DISOFIA_METADATA.executiveSummary}
@@ -135,56 +135,56 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
         </div>
 
         {/* Barra de navegación unificada en un solo panel continuo */}
-        <div className="w-full my-8 bg-stone-900/90 border border-stone-700/90 rounded-lg backdrop-blur-xs shadow-md overflow-hidden grid grid-cols-2 sm:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-stone-700/80">
+        <div className="w-full my-8 bg-white/70 border border-slate-300/70 rounded-lg backdrop-blur-xs shadow-sm overflow-hidden grid grid-cols-2 sm:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-slate-300/60">
           <button
             type="button"
             onClick={() => scrollToTarget('presentacion')}
-            className="w-full h-12 flex items-center justify-center gap-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold text-white hover:bg-stone-800/80 transition-colors cursor-pointer"
+            className="w-full h-12 flex items-center justify-center gap-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold text-slate-700 hover:text-slate-900 hover:bg-slate-200/70 transition-colors cursor-pointer"
           >
-            <BookOpen className="w-4 h-4 text-red-500 shrink-0" />
+            <BookOpen className="w-4 h-4 text-slate-500 shrink-0" />
             <span className="truncate">Presentación</span>
           </button>
 
           <button
             type="button"
             onClick={() => scrollToTarget('lineas')}
-            className="w-full h-12 flex items-center justify-center gap-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold text-stone-100 hover:text-white hover:bg-stone-800/80 transition-colors cursor-pointer"
+            className="w-full h-12 flex items-center justify-center gap-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold text-slate-700 hover:text-slate-900 hover:bg-slate-200/70 transition-colors cursor-pointer"
           >
-            <Compass className="w-4 h-4 text-amber-300 shrink-0" />
+            <Compass className="w-4 h-4 text-slate-500 shrink-0" />
             <span className="truncate">Líneas de investigación</span>
           </button>
 
           <button
             type="button"
             onClick={() => scrollToTarget('equipo')}
-            className="w-full h-12 flex items-center justify-center gap-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold text-stone-100 hover:text-white hover:bg-stone-800/80 transition-colors cursor-pointer"
+            className="w-full h-12 flex items-center justify-center gap-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold text-slate-700 hover:text-slate-900 hover:bg-slate-200/70 transition-colors cursor-pointer"
           >
-            <Users className="w-4 h-4 text-sky-300 shrink-0" />
+            <Users className="w-4 h-4 text-slate-500 shrink-0" />
             <span className="truncate">Equipo de investigación</span>
           </button>
 
           <button
             type="button"
             onClick={() => scrollToTarget('actividades')}
-            className="w-full h-12 flex items-center justify-center gap-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold text-stone-100 hover:text-white hover:bg-stone-800/80 transition-colors cursor-pointer"
+            className="w-full h-12 flex items-center justify-center gap-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold text-slate-700 hover:text-slate-900 hover:bg-slate-200/70 transition-colors cursor-pointer"
           >
-            <Calendar className="w-4 h-4 text-emerald-300 shrink-0" />
+            <Calendar className="w-4 h-4 text-slate-500 shrink-0" />
             <span className="truncate">Actividades</span>
           </button>
         </div>
 
         {/* Quantitative Project Indicators Strip: clean text with red dividers */}
-        <div className="w-full pt-6 border-t border-stone-800/80">
+        <div className="w-full pt-6 border-t border-slate-300">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full">
             {/* 1. 3 Años */}
             <div className="relative p-2 sm:p-3 flex flex-col items-center justify-center text-center">
-              <div className="text-2xl sm:text-3xl font-serif font-bold text-white tabular-nums text-center">
+              <div className="text-2xl sm:text-3xl font-serif font-bold text-[#1E293B] tabular-nums text-center">
                 3 Años
               </div>
-              <div className="text-xs text-stone-300 uppercase tracking-wider mt-1 font-mono text-center">
+              <div className="text-xs text-slate-600 uppercase tracking-wider mt-1 font-mono text-center">
                 2026 – 2029 (Tipo B)
               </div>
-              <div className="text-[11px] text-stone-400 mt-0.5 text-center">
+              <div className="text-[11px] text-slate-500 mt-0.5 text-center">
                 Investigación no orientada
               </div>
               {/* Red vertical divider */}
@@ -196,13 +196,13 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
 
             {/* 2. 7 Investigadores */}
             <div className="relative p-2 sm:p-3 flex flex-col items-center justify-center text-center">
-              <div className="text-2xl sm:text-3xl font-serif font-bold text-white tabular-nums text-center">
+              <div className="text-2xl sm:text-3xl font-serif font-bold text-[#1E293B] tabular-nums text-center">
                 7 Investigadores
               </div>
-              <div className="text-xs text-stone-300 uppercase tracking-wider mt-1 font-mono text-center">
+              <div className="text-xs text-slate-600 uppercase tracking-wider mt-1 font-mono text-center">
                 UNAV, UAM, UFV, USD
               </div>
-              <div className="text-[11px] text-stone-400 mt-0.5 text-center">
+              <div className="text-[11px] text-slate-500 mt-0.5 text-center">
                 IPs y Equipo de Investigación
               </div>
               {/* Red vertical divider on desktop */}
@@ -214,13 +214,13 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
 
             {/* 3. 17 Expertos */}
             <div className="relative p-2 sm:p-3 flex flex-col items-center justify-center text-center">
-              <div className="text-2xl sm:text-3xl font-serif font-bold text-white tabular-nums text-center">
+              <div className="text-2xl sm:text-3xl font-serif font-bold text-[#1E293B] tabular-nums text-center">
                 17 Expertos
               </div>
-              <div className="text-xs text-stone-300 uppercase tracking-wider mt-1 font-mono text-center">
+              <div className="text-xs text-slate-600 uppercase tracking-wider mt-1 font-mono text-center">
                 Internacionales
               </div>
-              <div className="text-[11px] text-stone-400 mt-0.5 text-center">
+              <div className="text-[11px] text-slate-500 mt-0.5 text-center">
                 De 10 países
               </div>
               {/* Red vertical divider */}
@@ -232,13 +232,13 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
 
             {/* 4. 5 Investigadores */}
             <div className="relative p-2 sm:p-3 flex flex-col items-center justify-center text-center">
-              <div className="text-2xl sm:text-3xl font-serif font-bold text-white tabular-nums text-center">
+              <div className="text-2xl sm:text-3xl font-serif font-bold text-[#1E293B] tabular-nums text-center">
                 5 Investigadores
               </div>
-              <div className="text-xs text-stone-300 uppercase tracking-wider mt-1 font-mono text-center">
+              <div className="text-xs text-slate-600 uppercase tracking-wider mt-1 font-mono text-center">
                 Doctorales
               </div>
-              <div className="text-[11px] text-stone-400 mt-0.5 text-center">
+              <div className="text-[11px] text-slate-500 mt-0.5 text-center">
                 Nacionales e internacionales
               </div>
             </div>
