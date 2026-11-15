@@ -124,47 +124,8 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
           </div>
         </div>
 
-        {/* Barra de navegación unificada en un solo panel continuo */}
-        <div className="w-full my-8 grid grid-cols-2 sm:grid-cols-4 gap-x-4 gap-y-1">
-          <button
-            type="button"
-            onClick={() => scrollToTarget('presentacion')}
-            className="w-full h-12 flex items-center justify-center gap-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold uppercase tracking-wide text-[#8B1E24] hover:underline decoration-slate-700 decoration-2 underline-offset-4 transition-colors cursor-pointer"
-          >
-            <BookOpen className="w-4 h-4 text-[#8B1E24] shrink-0" />
-            <span className="truncate">Presentación</span>
-          </button>
-
-          <button
-            type="button"
-            onClick={() => scrollToTarget('lineas')}
-            className="w-full h-12 flex items-center justify-center gap-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold uppercase tracking-wide text-[#8B1E24] hover:underline decoration-slate-700 decoration-2 underline-offset-4 transition-colors cursor-pointer"
-          >
-            <Compass className="w-4 h-4 text-[#8B1E24] shrink-0" />
-            <span className="truncate">Líneas de investigación</span>
-          </button>
-
-          <button
-            type="button"
-            onClick={() => scrollToTarget('equipo')}
-            className="w-full h-12 flex items-center justify-center gap-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold uppercase tracking-wide text-[#8B1E24] hover:underline decoration-slate-700 decoration-2 underline-offset-4 transition-colors cursor-pointer"
-          >
-            <Users className="w-4 h-4 text-[#8B1E24] shrink-0" />
-            <span className="truncate">Equipo de investigación</span>
-          </button>
-
-          <button
-            type="button"
-            onClick={() => scrollToTarget('actividades')}
-            className="w-full h-12 flex items-center justify-center gap-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold uppercase tracking-wide text-[#8B1E24] hover:underline decoration-slate-700 decoration-2 underline-offset-4 transition-colors cursor-pointer"
-          >
-            <Calendar className="w-4 h-4 text-[#8B1E24] shrink-0" />
-            <span className="truncate">Actividades</span>
-          </button>
-        </div>
-
         {/* Quantitative Project Indicators Strip: clean text with red dividers */}
-        <div className="w-full pt-6">
+        <div className="w-full">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full">
             {/* 1. 3 Años */}
             <div className="relative p-2 sm:p-3 flex flex-col items-center justify-center text-center">
@@ -233,6 +194,45 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Barra de navegación: botones en granate sobre barra blanca semitransparente */}
+        <div className="w-full grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-1 bg-white/60 rounded-lg px-2 py-1.5">
+          <button
+            type="button"
+            onClick={() => scrollToTarget('presentacion')}
+            className="w-full h-11 flex items-center justify-center gap-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold uppercase tracking-wide text-[#8B1E24] hover:underline decoration-slate-700 decoration-2 underline-offset-4 transition-colors cursor-pointer"
+          >
+            <BookOpen className="w-4 h-4 text-[#8B1E24] shrink-0" />
+            <span className="truncate">Presentación</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => scrollToTarget('lineas')}
+            className="w-full h-11 flex items-center justify-center gap-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold uppercase tracking-wide text-[#8B1E24] hover:underline decoration-slate-700 decoration-2 underline-offset-4 transition-colors cursor-pointer"
+          >
+            <Compass className="w-4 h-4 text-[#8B1E24] shrink-0" />
+            <span className="truncate">Líneas de investigación</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => scrollToTarget('equipo')}
+            className="w-full h-11 flex items-center justify-center gap-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold uppercase tracking-wide text-[#8B1E24] hover:underline decoration-slate-700 decoration-2 underline-offset-4 transition-colors cursor-pointer"
+          >
+            <Users className="w-4 h-4 text-[#8B1E24] shrink-0" />
+            <span className="truncate">Equipo de investigación</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => scrollToTarget('actividades')}
+            className="w-full h-11 flex items-center justify-center gap-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold uppercase tracking-wide text-[#8B1E24] hover:underline decoration-slate-700 decoration-2 underline-offset-4 transition-colors cursor-pointer"
+          >
+            <Calendar className="w-4 h-4 text-[#8B1E24] shrink-0" />
+            <span className="truncate">Actividades</span>
+          </button>
         </div>
 
       </div>
