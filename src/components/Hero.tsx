@@ -217,7 +217,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
               className="w-full h-9 flex items-center justify-center gap-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold uppercase tracking-wide text-white hover:underline decoration-white decoration-2 underline-offset-4 transition-colors cursor-pointer"
             >
               <Compass className="w-4 h-4 text-white shrink-0" />
-              <span className="truncate">Líneas de investigación</span>
+              <span className="truncate">Líneas</span>
             </button>
 
             <button
@@ -226,7 +226,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
               className="w-full h-9 flex items-center justify-center gap-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold uppercase tracking-wide text-white hover:underline decoration-white decoration-2 underline-offset-4 transition-colors cursor-pointer"
             >
               <Users className="w-4 h-4 text-white shrink-0" />
-              <span className="truncate">Equipo de investigación</span>
+              <span className="truncate">Equipo</span>
             </button>
 
             <button
