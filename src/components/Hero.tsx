@@ -19,8 +19,10 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
   // Mide el ancho del antetítulo y del título para dimensionar la imagen superior
   const eyebrowRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
+  const badgeRef = useRef<HTMLSpanElement>(null);
   const [eyebrowWidth, setEyebrowWidth] = useState<number | undefined>(undefined);
   const [titleWidth, setTitleWidth] = useState<number | undefined>(undefined);
+  const [badgeTextWidth, setBadgeTextWidth] = useState<number | undefined>(undefined);
   useLayoutEffect(() => {
     const measure = () => {
       if (eyebrowRef.current) setEyebrowWidth(eyebrowRef.current.offsetWidth);
@@ -29,6 +31,10 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
         range.selectNodeContents(titleRef.current);
         const w = range.getBoundingClientRect().width;
         if (w) setTitleWidth(w);
+      }
+      if (badgeRef.current) {
+        const w = badgeRef.current.getBoundingClientRect().width;
+        if (w) setBadgeTextWidth(w);
       }
     };
     measure();
@@ -129,20 +135,25 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
             {metadata.executiveSummary}
           </p>
 
-          {/* Identificador del proyecto, centrado bajo el subtítulo */}
+          {/* Identificador del proyecto en recuadro de línea fina, de doble anchura que el texto */}
           <div
-            className="inline-flex items-center justify-center gap-2 mt-6"
-            style={{ fontSize: '14px', fontFamily: '"Plus Jakarta Sans", sans-serif' }}
+            className="inline-flex items-center justify-center border border-black mt-6 mx-auto py-1.5 px-4"
+            style={{
+              width: badgeTextWidth ? `${badgeTextWidth * 2}px` : undefined,
+              maxWidth: '100%',
+              fontSize: '14px',
+              fontFamily: '"Plus Jakarta Sans", sans-serif',
+            }}
           >
-            <span className="text-black font-bold" aria-hidden="true">(</span>
-            <span className="uppercase tracking-widest text-[#8B1E24] font-bold">
-              {metadata.acronym}
+            <span ref={badgeRef} className="inline-flex items-center justify-center gap-2 whitespace-nowrap">
+              <span className="uppercase tracking-widest text-[#8B1E24] font-bold">
+                {metadata.acronym}
+              </span>
+              <span className="text-slate-400 font-normal" aria-hidden="true">&middot;</span>
+              <span className="text-[#1A1A1A] font-normal">
+                {metadata.reference}
+              </span>
             </span>
-            <span className="text-slate-400 font-normal" aria-hidden="true">&middot;</span>
-            <span className="text-[#1A1A1A] font-normal">
-              {metadata.reference}
-            </span>
-            <span className="text-black font-bold" aria-hidden="true">)</span>
           </div>
         </div>
 
