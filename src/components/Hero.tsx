@@ -139,7 +139,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
           <div
             className="inline-flex items-center justify-center border border-black mt-6 mx-auto py-1.5 px-4"
             style={{
-              width: badgeTextWidth ? `${badgeTextWidth * 2}px` : undefined,
+              width: badgeTextWidth ? `${badgeTextWidth * 1.6}px` : undefined,
               maxWidth: '100%',
               fontSize: '14px',
               fontFamily: '"Plus Jakarta Sans", sans-serif',
