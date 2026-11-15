@@ -197,11 +197,11 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
         </div>
 
         {/* Barra de navegación: botones en granate sobre barra blanca semitransparente */}
-        <div className="w-full grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-1 bg-white/60 rounded-lg px-2 py-1.5 mt-5">
+        <div className="w-full grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-1 bg-white/60 rounded-lg px-2 py-1 mt-5">
           <button
             type="button"
             onClick={() => scrollToTarget('presentacion')}
-            className="w-full h-11 flex items-center justify-center gap-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold uppercase tracking-wide text-[#8B1E24] hover:underline decoration-slate-700 decoration-2 underline-offset-4 transition-colors cursor-pointer"
+            className="w-full h-9 flex items-center justify-center gap-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold uppercase tracking-wide text-[#8B1E24] hover:underline decoration-slate-700 decoration-2 underline-offset-4 transition-colors cursor-pointer"
           >
             <BookOpen className="w-4 h-4 text-[#8B1E24] shrink-0" />
             <span className="truncate">Presentación</span>
@@ -210,7 +210,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
           <button
             type="button"
             onClick={() => scrollToTarget('lineas')}
-            className="w-full h-11 flex items-center justify-center gap-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold uppercase tracking-wide text-[#8B1E24] hover:underline decoration-slate-700 decoration-2 underline-offset-4 transition-colors cursor-pointer"
+            className="w-full h-9 flex items-center justify-center gap-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold uppercase tracking-wide text-[#8B1E24] hover:underline decoration-slate-700 decoration-2 underline-offset-4 transition-colors cursor-pointer"
           >
             <Compass className="w-4 h-4 text-[#8B1E24] shrink-0" />
             <span className="truncate">Líneas de investigación</span>
@@ -219,7 +219,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
           <button
             type="button"
             onClick={() => scrollToTarget('equipo')}
-            className="w-full h-11 flex items-center justify-center gap-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold uppercase tracking-wide text-[#8B1E24] hover:underline decoration-slate-700 decoration-2 underline-offset-4 transition-colors cursor-pointer"
+            className="w-full h-9 flex items-center justify-center gap-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold uppercase tracking-wide text-[#8B1E24] hover:underline decoration-slate-700 decoration-2 underline-offset-4 transition-colors cursor-pointer"
           >
             <Users className="w-4 h-4 text-[#8B1E24] shrink-0" />
             <span className="truncate">Equipo de investigación</span>
@@ -228,7 +228,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
           <button
             type="button"
             onClick={() => scrollToTarget('actividades')}
-            className="w-full h-11 flex items-center justify-center gap-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold uppercase tracking-wide text-[#8B1E24] hover:underline decoration-slate-700 decoration-2 underline-offset-4 transition-colors cursor-pointer"
+            className="w-full h-9 flex items-center justify-center gap-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold uppercase tracking-wide text-[#8B1E24] hover:underline decoration-slate-700 decoration-2 underline-offset-4 transition-colors cursor-pointer"
           >
             <Calendar className="w-4 h-4 text-[#8B1E24] shrink-0" />
             <span className="truncate">Actividades</span>
