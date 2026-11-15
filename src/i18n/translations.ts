@@ -63,6 +63,9 @@ const es = {
     pillar2Text: 'Análisis del papel constitutivo de la perplejidad, la vergüenza (aidós), el asombro (thauma), el eros y la philia en la transformación del sujeto.',
     pillar3Title: 'Línea 3: Transmisión Pedagógica y Política',
     pillar3Text: 'La paideia socrática en la polis: recepción histórica en las escuelas helenísticas y reactivación en la filosofía contemporánea analítica y continental.',
+    continuityPre: 'El presente proyecto da continuidad a la investigación y a las redes de cooperación desarrolladas en el proyecto anterior ',
+    continuityDynaLabel: 'DYNA',
+    continuityPost: ' (Deseo y normatividad en la antigüedad, PID2022-138517NA-I00, 2023–2026).',
   },
   lines: {
     eyebrow: 'Ejes Temáticos',
@@ -311,6 +314,9 @@ const en: typeof es = {
     pillar2Text: 'An analysis of the constitutive role of perplexity, shame (aidós), wonder (thauma), eros, and philia in the transformation of the subject.',
     pillar3Title: 'Line 3: Pedagogical and Political Transmission',
     pillar3Text: 'Socratic paideia in the polis: its historical reception in the Hellenistic schools and its reactivation in contemporary analytic and continental philosophy.',
+    continuityPre: 'This project continues the research and the networks of cooperation developed in the previous project ',
+    continuityDynaLabel: 'DYNA',
+    continuityPost: ' (Desire and Normativity in Antiquity, PID2022-138517NA-I00, 2023–2026).',
   },
   lines: {
     eyebrow: 'Thematic Axes',
@@ -513,6 +519,8 @@ export const REGION_LABELS: Record<string, { es: string; en: string }> = {
   Latinoamérica: { es: 'Latinoamérica', en: 'Latin America' },
   Asia: { es: 'Asia', en: 'Asia' },
 };
+
+export const DYNA_URL = 'https://portalcientifico.unav.edu/proyectos/747610/detalle';
 
 export const translations: Record<Lang, typeof es> = { es, en };
 

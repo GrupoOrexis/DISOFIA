@@ -1,7 +1,7 @@
 import { Compass, HeartHandshake, Lightbulb } from 'lucide-react';
 import { useDisofiaData } from '../data/disofiaData';
 import { useT } from '../i18n/LanguageContext';
-import { fmt } from '../i18n/translations';
+import { fmt, DYNA_URL } from '../i18n/translations';
 
 export function PresentationSection() {
   const t = useT();
@@ -82,6 +82,20 @@ export function PresentationSection() {
           </div>
 
         </div>
+
+        {/* Nota de continuidad con el proyecto anterior DYNA */}
+        <p className="mt-10 pt-6 border-t border-stone-200 text-sm text-stone-500 leading-relaxed">
+          {t.presentation.continuityPre}
+          <a
+            href={DYNA_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-[#8B1E24] hover:underline underline-offset-2"
+          >
+            {t.presentation.continuityDynaLabel}
+          </a>
+          {t.presentation.continuityPost}
+        </p>
 
       </div>
     </section>
