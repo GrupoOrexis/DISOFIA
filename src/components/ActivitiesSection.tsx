@@ -200,17 +200,45 @@ export function ActivitiesSection({ onOpenContactModal }: ActivitiesSectionProps
             </div>,
           )}
 
-          {/* 3. Participación en congresos internacionales */}
+          {/* 3. Participación en congresos y cursos nacionales e internacionales */}
           {row(
             'congresos',
             <Globe2 className="w-5 h-5" />,
-            'Participación en congresos internacionales',
+            'Participación en congresos y cursos nacionales e internacionales',
             'Presentación de resultados en foros científicos',
-            <p className="text-stone-600 text-sm sm:text-base leading-relaxed">
-              Los miembros del equipo presentan los avances y resultados del proyecto en congresos, coloquios
-              y jornadas nacionales e internacionales de filosofía antigua y de la filosofía como forma de vida,
-              reforzando el diálogo con otros grupos y líneas de investigación afines.
-            </p>,
+            <div>
+              <p className="text-stone-600 text-sm sm:text-base leading-relaxed mb-5">
+                Los miembros del equipo participan en congresos, cursos y seminarios nacionales e
+                internacionales de filosofía antigua y de la filosofía como forma de vida, reforzando el
+                diálogo con otros grupos y líneas de investigación afines.
+              </p>
+              <ul className="space-y-4">
+                <li className="flex gap-3">
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#8B1E24] shrink-0" />
+                  <div>
+                    <p className="font-semibold text-stone-900 text-sm sm:text-base">
+                      Ciclo de conferencias sobre la amistad en la filosofía antigua
+                    </p>
+                    <p className="text-sm text-stone-600">
+                      Universidad del País Vasco (EHU) · VI Edición del Seminario Permanente de Filosofía Antigua
+                    </p>
+                    <p className="text-xs font-mono text-[#8B1E24] mt-0.5">Diciembre de 2026</p>
+                  </div>
+                </li>
+                <li className="flex gap-3">
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#8B1E24] shrink-0" />
+                  <div>
+                    <p className="font-semibold text-stone-900 text-sm sm:text-base">
+                      Participación en «Socratica» (ISSS)
+                    </p>
+                    <p className="text-sm text-stone-600">
+                      Università degli Studi di Messina
+                    </p>
+                    <p className="text-xs font-mono text-[#8B1E24] mt-0.5">Mayo de 2027</p>
+                  </div>
+                </li>
+              </ul>
+            </div>,
           )}
 
           {/* 4. Estancias de investigación y redes */}
