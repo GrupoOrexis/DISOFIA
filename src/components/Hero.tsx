@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
 import { BookOpen, Calendar, Compass, Expand, Eye, Users, X } from 'lucide-react';
 import { useDisofiaData } from '../data/disofiaData';
 import { useT } from '../i18n/LanguageContext';
@@ -16,6 +16,20 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
   const t = useT();
   const { metadata } = useDisofiaData();
 
+  // Mide el ancho del antetítulo (texto + guiones) para igualar la imagen superior
+  const eyebrowRef = useRef<HTMLDivElement>(null);
+  const [eyebrowWidth, setEyebrowWidth] = useState<number | undefined>(undefined);
+  useLayoutEffect(() => {
+    const measure = () => {
+      if (eyebrowRef.current) setEyebrowWidth(eyebrowRef.current.offsetWidth);
+    };
+    measure();
+    window.addEventListener('resize', measure);
+    const fonts = (document as Document & { fonts?: { ready: Promise<unknown> } }).fonts;
+    if (fonts?.ready) fonts.ready.then(measure).catch(() => {});
+    return () => window.removeEventListener('resize', measure);
+  }, []);
+
   const scrollToTarget = (id: string) => {
     if (onNavigate) {
       onNavigate(id);
@@ -31,68 +45,60 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
   const imageFilterStyle = { filter: 'grayscale(92%) contrast(1.28) brightness(0.92) saturate(0.1)' };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#F4F3F0] via-[#ECEBE7] to-[#E3E2DE] text-slate-800">
-      {/* Subtle classical texture on background */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage:
-            'repeating-linear-gradient(45deg, rgba(51,65,85,0.10) 0, rgba(51,65,85,0.10) 1px, transparent 1px, transparent 10px), repeating-linear-gradient(45deg, rgba(255,255,255,0.85) 5px, rgba(255,255,255,0.85) 6px, transparent 6px, transparent 10px), repeating-linear-gradient(-45deg, rgba(255,255,255,0.85) 5px, rgba(255,255,255,0.85) 6px, transparent 6px, transparent 10px), repeating-linear-gradient(45deg, rgba(139,30,36,0.12) 0, rgba(139,30,36,0.12) 1px, transparent 1px, transparent 30px), repeating-linear-gradient(-45deg, rgba(20,83,45,0.12) 0, rgba(20,83,45,0.12) 1px, transparent 1px, transparent 30px)',
-        }}
-        aria-hidden="true"
-      />
+    <section className="relative overflow-hidden bg-gradient-to-br from-[#F5F5F7] via-[#EAEBEF] to-[#DFE0E6] text-slate-800">
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-8 sm:pt-10 pb-3 sm:pb-4">
+      <div className="relative">
+        {/* Trama de líneas diagonales (grises y ocres) sobre el fondo, detrás del texto */}
+        <div
+          className="absolute inset-0 z-0 pointer-events-none"
+          style={{
+            backgroundImage:
+              'repeating-linear-gradient(45deg, rgba(120,120,120,0.13) 0, rgba(120,120,120,0.13) 1px, transparent 1px, transparent 7px), repeating-linear-gradient(-45deg, rgba(150,150,150,0.11) 0, rgba(150,150,150,0.11) 1px, transparent 1px, transparent 7px)',
+          }}
+          aria-hidden="true"
+        />
 
-        {/* Classical Frieze of Socrates across the Hero, positioned directly above the Project Title */}
-        <figure className="w-full mb-6 sm:mb-8">
-          {/* Enlace discreto "Explorar Imagen": texto gris, sin fondo, encima del marco, a la derecha */}
-          <div className="flex justify-end mb-1.5">
-            <button
-              type="button"
-              onClick={() => setImageModalOpen(true)}
-              className="inline-flex items-center gap-1.5 text-[11px] font-mono text-stone-500 hover:text-stone-700 transition-colors cursor-pointer"
-              title={t.hero.exploreImage}
-            >
-              <Eye className="w-3.5 h-3.5" />
-              <span>{t.hero.exploreImage}</span>
-            </button>
-          </div>
-          <div className="relative rounded-lg overflow-hidden bg-stone-950 border border-stone-700/80 shadow-2xl group">
-            {/* Top architectural border accent */}
-            <div className="h-0.5 bg-gradient-to-r from-stone-800 via-[#8B1E24] to-stone-800" />
+        {/* Enlace discreto para ampliar el relieve completo */}
+        <div className="absolute top-3 right-4 z-20">
+          <button
+            type="button"
+            onClick={() => setImageModalOpen(true)}
+            className="inline-flex items-center gap-1.5 text-[11px] font-mono text-stone-500 hover:text-stone-700 transition-colors cursor-pointer"
+            title={t.hero.exploreImage}
+          >
+            <Eye className="w-3.5 h-3.5" />
+            <span>{t.hero.exploreImage}</span>
+          </button>
+        </div>
 
-            {/* Frieze Viewport */}
-            <div className="relative w-full h-24 sm:h-28 md:h-36 lg:h-40 overflow-hidden bg-stone-950 flex items-center justify-center">
-              <img
-                src={CANOVA_APOLOGY_URL}
-                alt="Friso: La apología de Sócrates ante los jueces — Antonio Canova (1790–1792)"
-                referrerPolicy="no-referrer"
-                style={imageFilterStyle}
-                className="w-full h-full object-cover object-[center_34%] transition-transform duration-700 group-hover:scale-[1.02]"
-              />
-
-              {/* Subtle architectural lighting vignette */}
-              <div className="absolute inset-0 bg-gradient-to-t from-stone-950/60 via-transparent to-transparent pointer-events-none" />
-            </div>
-          </div>
-        </figure>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-10 sm:pt-12 pb-8 sm:pb-10 min-h-[300px] sm:min-h-[340px] flex flex-col justify-center">
 
         {/* Project Title and Header Presentation */}
         <div className="w-full mb-4 text-center flex flex-col items-center">
           <div className="w-full flex flex-col items-center">
+            {/* Fragmento del relieve de Canova (Sócrates y las figuras que lo miran), mismo ancho que el antetítulo */}
+            <img
+              src="assets/aistudio/hero-socrates-frag.jpg"
+              alt="Fragmento del relieve de Canova: Sócrates y las figuras que lo observan"
+              style={{
+                width: eyebrowWidth ? `${eyebrowWidth}px` : undefined,
+                filter: 'grayscale(100%) contrast(0.82) brightness(1.1)',
+              }}
+              className="h-auto max-w-full mb-3 mx-auto select-none border border-black/10"
+            />
             <div
+              ref={eyebrowRef}
               className="tracking-widest uppercase font-semibold my-2 text-center flex items-center justify-center gap-3"
               style={{
                 fontFamily: '"Plus Jakarta Sans", sans-serif',
                 fontSize: '19px',
-                color: '#475569',
+                color: '#1A1A1A',
                 height: '34.5px',
               }}
             >
-              <span className="inline-block w-8 sm:w-10 h-[1.5px] bg-[#475569]/60" aria-hidden="true" />
+              <span className="inline-block w-8 sm:w-10 h-[1.5px] bg-[#1A1A1A]/50" aria-hidden="true" />
               <span>{t.hero.eyebrow} &middot; {metadata.period}</span>
-              <span className="inline-block w-8 sm:w-10 h-[1.5px] bg-[#475569]/60" aria-hidden="true" />
+              <span className="inline-block w-8 sm:w-10 h-[1.5px] bg-[#1A1A1A]/50" aria-hidden="true" />
             </div>
 
             <h1
@@ -105,7 +111,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
 
           {/* Executive Summary */}
           <p
-            className="text-slate-600 font-light leading-relaxed mx-auto text-center mt-4"
+            className="text-[#1A1A1A] font-light leading-relaxed mx-auto text-center mt-4"
             style={{ fontSize: '20px', width: '918px', maxWidth: '100%' }}
           >
             {metadata.executiveSummary}
@@ -120,7 +126,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
               {metadata.acronym}
             </span>
             <span className="text-slate-400 font-normal" aria-hidden="true">&middot;</span>
-            <span className="text-slate-600 font-normal">
+            <span className="text-[#1A1A1A] font-normal">
               {metadata.reference}
             </span>
           </div>
@@ -134,10 +140,10 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
               <div className="text-2xl sm:text-3xl font-serif font-bold text-[#1E293B] tabular-nums text-center">
                 3 {t.hero.years}
               </div>
-              <div className="text-xs text-slate-600 uppercase tracking-wider mt-1 font-mono text-center">
+              <div className="text-xs text-[#1A1A1A] uppercase tracking-wider mt-1 font-mono text-center">
                 {t.hero.yearsSub}
               </div>
-              <div className="text-[11px] text-slate-500 mt-0.5 text-center">
+              <div className="text-[11px] text-[#1A1A1A] mt-0.5 text-center">
                 {t.hero.nonOriented}
               </div>
               {/* Red vertical divider */}
@@ -152,10 +158,10 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
               <div className="text-2xl sm:text-3xl font-serif font-bold text-[#1E293B] tabular-nums text-center">
                 12 {t.hero.researchers}
               </div>
-              <div className="text-xs text-slate-600 uppercase tracking-wider mt-1 font-mono text-center">
+              <div className="text-xs text-[#1A1A1A] uppercase tracking-wider mt-1 font-mono text-center">
                 {t.hero.researchersSub}
               </div>
-              <div className="text-[11px] text-slate-500 mt-0.5 text-center">
+              <div className="text-[11px] text-[#1A1A1A] mt-0.5 text-center">
                 {t.hero.linkedToProject}
               </div>
               {/* Red vertical divider on desktop */}
@@ -170,10 +176,10 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
               <div className="text-2xl sm:text-3xl font-serif font-bold text-[#1E293B] tabular-nums text-center">
                 17 {t.hero.experts}
               </div>
-              <div className="text-xs text-slate-600 uppercase tracking-wider mt-1 font-mono text-center">
+              <div className="text-xs text-[#1A1A1A] uppercase tracking-wider mt-1 font-mono text-center">
                 {t.hero.international}
               </div>
-              <div className="text-[11px] text-slate-500 mt-0.5 text-center">
+              <div className="text-[11px] text-[#1A1A1A] mt-0.5 text-center">
                 {t.hero.from10Countries}
               </div>
               {/* Red vertical divider */}
@@ -188,16 +194,17 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
               <div className="text-2xl sm:text-3xl font-serif font-bold text-[#1E293B] tabular-nums text-center">
                 49.000 €
               </div>
-              <div className="text-xs text-slate-600 uppercase tracking-wider mt-1 font-mono text-center">
+              <div className="text-xs text-[#1A1A1A] uppercase tracking-wider mt-1 font-mono text-center">
                 {t.hero.budget}
               </div>
-              <div className="text-[11px] text-slate-500 mt-0.5 text-center">
+              <div className="text-[11px] text-[#1A1A1A] mt-0.5 text-center">
                 {t.hero.projectFunding}
               </div>
             </div>
           </div>
         </div>
 
+      </div>
       </div>
 
       {/* Franja granate separadora con la navegación integrada (texto e iconos en blanco) */}

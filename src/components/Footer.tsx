@@ -4,11 +4,10 @@ import { useT } from '../i18n/LanguageContext';
 import { fmt } from '../i18n/translations';
 
 interface FooterProps {
-  onOpenGoogleSitesModal: () => void;
   onOpenContactModal: () => void;
 }
 
-export function Footer({ onOpenGoogleSitesModal, onOpenContactModal }: FooterProps) {
+export function Footer(_props: FooterProps) {
   const t = useT();
   const { metadata, principalInvestigators } = useDisofiaData();
 

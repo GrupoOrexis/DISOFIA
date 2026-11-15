@@ -8,7 +8,6 @@ import { ActivitiesSection } from './components/ActivitiesSection';
 import { ContactModal } from './components/ContactModal';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
-import { GoogleSitesModal } from './components/GoogleSitesModal';
 import { Hero } from './components/Hero';
 import { InternationalNetworkSection } from './components/InternationalNetworkSection';
 import { Navbar } from './components/Navbar';
@@ -19,7 +18,6 @@ import { ResearchLinesSection } from './components/ResearchLinesSection';
 import { TeamSection } from './components/TeamSection';
 
 export default function App() {
-  const [googleSitesModalOpen, setGoogleSitesModalOpen] = useState(false);
   const [contactModalOpen, setContactModalOpen] = useState(false);
 
   const scrollToSection = (id: string) => {
@@ -33,7 +31,6 @@ export default function App() {
     <div className="min-h-screen bg-[#FAF9F5] text-stone-800 flex flex-col font-sans">
       {/* Top Bar following Top Bar Contract */}
       <Navbar
-        onOpenGoogleSitesModal={() => setGoogleSitesModalOpen(true)}
         onOpenContactModal={() => setContactModalOpen(true)}
       />
 
@@ -77,16 +74,10 @@ export default function App() {
 
       {/* Footer */}
       <Footer
-        onOpenGoogleSitesModal={() => setGoogleSitesModalOpen(true)}
         onOpenContactModal={() => setContactModalOpen(true)}
       />
 
       {/* Modals */}
-      <GoogleSitesModal
-        isOpen={googleSitesModalOpen}
-        onClose={() => setGoogleSitesModalOpen(false)}
-      />
-
       <ContactModal
         isOpen={contactModalOpen}
         onClose={() => setContactModalOpen(false)}

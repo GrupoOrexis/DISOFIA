@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { Globe, Layers, Mail, Menu, X } from 'lucide-react';
+import { Globe, Mail, Menu, X } from 'lucide-react';
 import { useLang } from '../i18n/LanguageContext';
 
 interface NavbarProps {
-  onOpenGoogleSitesModal: () => void;
   onOpenContactModal: () => void;
 }
 
@@ -44,7 +43,7 @@ function LangSwitch({ compact = false }: { compact?: boolean }) {
   );
 }
 
-export function Navbar({ onOpenGoogleSitesModal, onOpenContactModal }: NavbarProps) {
+export function Navbar(_props: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { t } = useLang();
 
@@ -99,10 +98,9 @@ export function Navbar({ onOpenGoogleSitesModal, onOpenContactModal }: NavbarPro
             <LangSwitch />
             <a
               href="#contacto"
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded bg-[#8B1E24] hover:bg-[#6C151A] text-white text-sm font-semibold transition-colors whitespace-nowrap"
+              className="text-[#8B1E24] hover:text-[#6C151A] text-sm font-semibold transition-colors whitespace-nowrap hover:underline underline-offset-4 decoration-2"
             >
-              <Mail className="w-4 h-4" />
-              <span>{t.nav.contact}</span>
+              {t.nav.contact}
             </a>
           </div>
 
@@ -141,18 +139,6 @@ export function Navbar({ onOpenGoogleSitesModal, onOpenContactModal }: NavbarPro
           </div>
 
           <div className="pt-3 border-t border-stone-800 flex flex-col gap-2">
-            <button
-              type="button"
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenGoogleSitesModal();
-              }}
-              className="w-full flex items-center justify-center gap-2 px-4 py-2 text-xs font-medium text-stone-200 bg-stone-800 rounded border border-stone-700"
-            >
-              <Layers className="w-4 h-4 text-red-400" />
-              <span>{t.nav.googleSitesGuide}</span>
-            </button>
-
             <a
               href="#contacto"
               onClick={() => setMobileMenuOpen(false)}
