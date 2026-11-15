@@ -39,7 +39,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
         aria-hidden="true"
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-8 sm:pt-10 pb-12 sm:pb-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-8 sm:pt-10 pb-6 sm:pb-8">
         
         {/* Classical Frieze of Socrates across the Hero, positioned directly above the Project Title */}
         <figure className="w-full mb-6 sm:mb-8">
@@ -77,7 +77,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
         </figure>
 
         {/* Project Title and Header Presentation */}
-        <div className="w-full space-y-4 mb-8 text-center flex flex-col items-center">
+        <div className="w-full mb-4 text-center flex flex-col items-center">
           <div className="w-full flex flex-col items-center">
             <div
               className="tracking-widest uppercase font-semibold my-2 text-center flex items-center justify-center gap-3"
@@ -103,7 +103,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
 
           {/* Executive Summary */}
           <p
-            className="text-slate-600 font-light leading-relaxed mx-auto text-center"
+            className="text-slate-600 font-light leading-relaxed mx-auto text-center mt-4"
             style={{ fontSize: '20px', width: '918px', maxWidth: '100%' }}
           >
             {DISOFIA_METADATA.executiveSummary}
@@ -111,7 +111,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
 
           {/* Identificador del proyecto, centrado bajo el subtítulo */}
           <div
-            className="inline-flex items-center justify-center gap-2 bg-white px-3 py-1 rounded-md"
+            className="inline-flex items-center justify-center gap-2 bg-white px-3 py-1 rounded-md mt-4"
             style={{ fontSize: '14px', fontFamily: '"Plus Jakarta Sans", sans-serif' }}
           >
             <span className="uppercase tracking-widest text-[#8B1E24] font-bold">
@@ -125,7 +125,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
         </div>
 
         {/* Quantitative Project Indicators Strip: clean text with red dividers */}
-        <div className="w-full">
+        <div className="w-full mt-2">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full">
             {/* 1. 3 Años */}
             <div className="relative p-2 sm:p-3 flex flex-col items-center justify-center text-center">
@@ -197,7 +197,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
         </div>
 
         {/* Barra de navegación: botones en granate sobre barra blanca semitransparente */}
-        <div className="w-full grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-1 bg-white/60 rounded-lg px-2 py-1.5">
+        <div className="w-full grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-1 bg-white/60 rounded-lg px-2 py-1.5 mt-5">
           <button
             type="button"
             onClick={() => scrollToTarget('presentacion')}
