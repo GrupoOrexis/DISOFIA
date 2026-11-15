@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import { AtSign, Mail, Send, User } from 'lucide-react';
-import { PRINCIPAL_INVESTIGATORS } from '../data/disofiaData';
+import { useDisofiaData } from '../data/disofiaData';
+import { useT } from '../i18n/LanguageContext';
 
 export function ContactSection() {
+  const t = useT();
+  const { principalInvestigators } = useDisofiaData();
   const [nombre, setNombre] = useState('');
   const [email, setEmail] = useState('');
   const [asunto, setAsunto] = useState('');
@@ -10,10 +13,10 @@ export function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const to = PRINCIPAL_INVESTIGATORS.map((ip) => ip.email).join(',');
-    const subject = encodeURIComponent(asunto.trim() || 'Contacto · Proyecto DISOFIA');
+    const to = principalInvestigators.map((ip) => ip.email).join(',');
+    const subject = encodeURIComponent(asunto.trim() || t.contact.defaultSubject);
     const body = encodeURIComponent(
-      `Nombre: ${nombre}\nCorreo: ${email}\n\n${mensaje}`,
+      `${t.contact.mailName}: ${nombre}\n${t.contact.mailEmail}: ${email}\n\n${mensaje}`,
     );
     window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
   };
@@ -25,14 +28,13 @@ export function ContactSection() {
         {/* Section Header */}
         <div className="mb-10">
           <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#8B1E24] mb-2 font-mono">
-            <span>Contacto</span>
+            <span>{t.contact.eyebrow}</span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-stone-900 tracking-tight">
-            Ponte en contacto con el proyecto
+            {t.contact.title}
           </h2>
           <p className="text-stone-600 mt-2 max-w-3xl text-sm sm:text-base">
-            Puedes escribir directamente a los Investigadores Principales por correo electrónico, o enviarnos
-            un mensaje a través del formulario.
+            {t.contact.intro}
           </p>
           <div className="w-16 h-1 bg-[#8B1E24] mt-3"></div>
         </div>
@@ -42,10 +44,10 @@ export function ContactSection() {
           {/* Columna 1: Correo directo a los IPs */}
           <div>
             <h3 className="font-serif font-bold text-xl text-stone-900 mb-4">
-              Correo directo a los Investigadores Principales
+              {t.contact.directTitle}
             </h3>
             <div className="space-y-4">
-              {PRINCIPAL_INVESTIGATORS.map((ip) => (
+              {principalInvestigators.map((ip) => (
                 <a
                   key={ip.email}
                   href={`mailto:${ip.email}`}
@@ -69,11 +71,10 @@ export function ContactSection() {
               ))}
             </div>
             <p className="text-xs text-stone-500 mt-4 leading-relaxed">
-              Coordinación del proyecto en el Departamento de Filosofía de la Universidad de Navarra
-              (Facultad de Filosofía y Letras).
+              {t.contact.coordNote}
             </p>
             <p className="text-xs text-stone-500 mt-2 leading-relaxed">
-              El proyecto se enmarca en el grupo de investigación consolidado{' '}
+              {t.contact.orexisNotePrefix}{' '}
               <a
                 href="https://portalcientifico.unav.edu/grupos/62169/detalle"
                 target="_blank"
@@ -89,7 +90,7 @@ export function ContactSection() {
           {/* Columna 2: Formulario de mensaje */}
           <div>
             <h3 className="font-serif font-bold text-xl text-stone-900 mb-4">
-              Envíanos un mensaje
+              {t.contact.formTitle}
             </h3>
             <form
               onSubmit={handleSubmit}
@@ -97,7 +98,7 @@ export function ContactSection() {
             >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <label className="block">
-                  <span className="block text-xs font-semibold text-stone-700 mb-1.5">Nombre</span>
+                  <span className="block text-xs font-semibold text-stone-700 mb-1.5">{t.contact.labelName}</span>
                   <div className="relative">
                     <User className="w-4 h-4 text-stone-400 absolute left-3 top-1/2 -translate-y-1/2" />
                     <input
@@ -105,13 +106,13 @@ export function ContactSection() {
                       required
                       value={nombre}
                       onChange={(e) => setNombre(e.target.value)}
-                      placeholder="Tu nombre"
+                      placeholder={t.contact.phName}
                       className="w-full pl-9 pr-3 py-2 text-sm bg-stone-50 border border-stone-200 rounded text-stone-800 focus:outline-none focus:ring-1 focus:ring-[#8B1E24] focus:border-[#8B1E24]"
                     />
                   </div>
                 </label>
                 <label className="block">
-                  <span className="block text-xs font-semibold text-stone-700 mb-1.5">Correo electrónico</span>
+                  <span className="block text-xs font-semibold text-stone-700 mb-1.5">{t.contact.labelEmail}</span>
                   <div className="relative">
                     <AtSign className="w-4 h-4 text-stone-400 absolute left-3 top-1/2 -translate-y-1/2" />
                     <input
@@ -119,7 +120,7 @@ export function ContactSection() {
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder="tu@correo.com"
+                      placeholder={t.contact.phEmail}
                       className="w-full pl-9 pr-3 py-2 text-sm bg-stone-50 border border-stone-200 rounded text-stone-800 focus:outline-none focus:ring-1 focus:ring-[#8B1E24] focus:border-[#8B1E24]"
                     />
                   </div>
@@ -127,23 +128,23 @@ export function ContactSection() {
               </div>
 
               <label className="block">
-                <span className="block text-xs font-semibold text-stone-700 mb-1.5">Asunto</span>
+                <span className="block text-xs font-semibold text-stone-700 mb-1.5">{t.contact.labelSubject}</span>
                 <input
                   type="text"
                   value={asunto}
                   onChange={(e) => setAsunto(e.target.value)}
-                  placeholder="Asunto del mensaje"
+                  placeholder={t.contact.phSubject}
                   className="w-full px-3 py-2 text-sm bg-stone-50 border border-stone-200 rounded text-stone-800 focus:outline-none focus:ring-1 focus:ring-[#8B1E24] focus:border-[#8B1E24]"
                 />
               </label>
 
               <label className="block">
-                <span className="block text-xs font-semibold text-stone-700 mb-1.5">Mensaje</span>
+                <span className="block text-xs font-semibold text-stone-700 mb-1.5">{t.contact.labelMessage}</span>
                 <textarea
                   required
                   value={mensaje}
                   onChange={(e) => setMensaje(e.target.value)}
-                  placeholder="Escribe tu mensaje…"
+                  placeholder={t.contact.phMessage}
                   rows={5}
                   className="w-full px-3 py-2 text-sm bg-stone-50 border border-stone-200 rounded text-stone-800 resize-y focus:outline-none focus:ring-1 focus:ring-[#8B1E24] focus:border-[#8B1E24]"
                 />
@@ -154,10 +155,10 @@ export function ContactSection() {
                 className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#8B1E24] hover:bg-[#6C151A] text-white text-sm font-semibold rounded shadow-xs transition-colors cursor-pointer"
               >
                 <Send className="w-4 h-4" />
-                <span>Enviar mensaje</span>
+                <span>{t.contact.sendBtn}</span>
               </button>
               <p className="text-[11px] text-stone-400 leading-relaxed">
-                Al enviar se abrirá tu programa de correo con el mensaje dirigido a la coordinación del proyecto.
+                {t.contact.formHint}
               </p>
             </form>
           </div>

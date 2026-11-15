@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { BookOpen, Calendar, Compass, Expand, Eye, Users, X } from 'lucide-react';
-import { DISOFIA_METADATA } from '../data/disofiaData';
+import { useDisofiaData } from '../data/disofiaData';
+import { useT } from '../i18n/LanguageContext';
 
 interface HeroProps {
   onExploreLines?: () => void;
@@ -12,6 +13,8 @@ const CANOVA_APOLOGY_URL = 'assets/aistudio/Canova_-_The_apology_of_Socrates_in_
 
 export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps) {
   const [imageModalOpen, setImageModalOpen] = useState(false);
+  const t = useT();
+  const { metadata } = useDisofiaData();
 
   const scrollToTarget = (id: string) => {
     if (onNavigate) {
@@ -40,7 +43,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-8 sm:pt-10 pb-3 sm:pb-4">
-        
+
         {/* Classical Frieze of Socrates across the Hero, positioned directly above the Project Title */}
         <figure className="w-full mb-6 sm:mb-8">
           {/* Enlace discreto "Explorar Imagen": texto gris, sin fondo, encima del marco, a la derecha */}
@@ -49,18 +52,17 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
               type="button"
               onClick={() => setImageModalOpen(true)}
               className="inline-flex items-center gap-1.5 text-[11px] font-mono text-stone-500 hover:text-stone-700 transition-colors cursor-pointer"
-              title="Ver relieve completo en alta resolución"
+              title={t.hero.exploreImage}
             >
               <Eye className="w-3.5 h-3.5" />
-              <span>Explorar Imagen</span>
+              <span>{t.hero.exploreImage}</span>
             </button>
           </div>
           <div className="relative rounded-lg overflow-hidden bg-stone-950 border border-stone-700/80 shadow-2xl group">
             {/* Top architectural border accent */}
             <div className="h-0.5 bg-gradient-to-r from-stone-800 via-[#8B1E24] to-stone-800" />
 
-            {/* Frieze Viewport: increased height to show upper architectural area */}
-            {/* Frieze Viewport: adjusted framing to show the bodies of the characters */}
+            {/* Frieze Viewport */}
             <div className="relative w-full h-24 sm:h-28 md:h-36 lg:h-40 overflow-hidden bg-stone-950 flex items-center justify-center">
               <img
                 src={CANOVA_APOLOGY_URL}
@@ -89,7 +91,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
               }}
             >
               <span className="inline-block w-8 sm:w-10 h-[1.5px] bg-[#475569]/60" aria-hidden="true" />
-              <span>PROYECTO DE INVESTIGACIÓN &middot; {DISOFIA_METADATA.period}</span>
+              <span>{t.hero.eyebrow} &middot; {metadata.period}</span>
               <span className="inline-block w-8 sm:w-10 h-[1.5px] bg-[#475569]/60" aria-hidden="true" />
             </div>
 
@@ -97,7 +99,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
               className="font-serif font-bold text-[#1E293B] tracking-tight leading-[1.1] w-full text-center"
               style={{ fontSize: '65px' }}
             >
-              {DISOFIA_METADATA.title}
+              {metadata.title}
             </h1>
           </div>
 
@@ -106,7 +108,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
             className="text-slate-600 font-light leading-relaxed mx-auto text-center mt-4"
             style={{ fontSize: '20px', width: '918px', maxWidth: '100%' }}
           >
-            {DISOFIA_METADATA.executiveSummary}
+            {metadata.executiveSummary}
           </p>
 
           {/* Identificador del proyecto, centrado bajo el subtítulo */}
@@ -115,11 +117,11 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
             style={{ fontSize: '14px', fontFamily: '"Plus Jakarta Sans", sans-serif' }}
           >
             <span className="uppercase tracking-widest text-[#8B1E24] font-bold">
-              {DISOFIA_METADATA.acronym}
+              {metadata.acronym}
             </span>
             <span className="text-slate-400 font-normal" aria-hidden="true">&middot;</span>
             <span className="text-slate-600 font-normal">
-              {DISOFIA_METADATA.reference}
+              {metadata.reference}
             </span>
           </div>
         </div>
@@ -130,13 +132,13 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
             {/* 1. 3 Años */}
             <div className="relative p-2 sm:p-3 flex flex-col items-center justify-center text-center">
               <div className="text-2xl sm:text-3xl font-serif font-bold text-[#1E293B] tabular-nums text-center">
-                3 Años
+                3 {t.hero.years}
               </div>
               <div className="text-xs text-slate-600 uppercase tracking-wider mt-1 font-mono text-center">
-                2026 – 2029 (Tipo B)
+                {t.hero.yearsSub}
               </div>
               <div className="text-[11px] text-slate-500 mt-0.5 text-center">
-                Investigación no orientada
+                {t.hero.nonOriented}
               </div>
               {/* Red vertical divider */}
               <div
@@ -145,16 +147,16 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
               />
             </div>
 
-            {/* 2. 7 Investigadores */}
+            {/* 2. 12 Investigadores */}
             <div className="relative p-2 sm:p-3 flex flex-col items-center justify-center text-center">
               <div className="text-2xl sm:text-3xl font-serif font-bold text-[#1E293B] tabular-nums text-center">
-                12 Investigadores
+                12 {t.hero.researchers}
               </div>
               <div className="text-xs text-slate-600 uppercase tracking-wider mt-1 font-mono text-center">
-                2 IP · 5 Equipo · 5 Doctorales
+                {t.hero.researchersSub}
               </div>
               <div className="text-[11px] text-slate-500 mt-0.5 text-center">
-                Vinculados al proyecto
+                {t.hero.linkedToProject}
               </div>
               {/* Red vertical divider on desktop */}
               <div
@@ -166,13 +168,13 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
             {/* 3. 17 Expertos */}
             <div className="relative p-2 sm:p-3 flex flex-col items-center justify-center text-center">
               <div className="text-2xl sm:text-3xl font-serif font-bold text-[#1E293B] tabular-nums text-center">
-                17 Expertos
+                17 {t.hero.experts}
               </div>
               <div className="text-xs text-slate-600 uppercase tracking-wider mt-1 font-mono text-center">
-                Internacionales
+                {t.hero.international}
               </div>
               <div className="text-[11px] text-slate-500 mt-0.5 text-center">
-                De 10 países
+                {t.hero.from10Countries}
               </div>
               {/* Red vertical divider */}
               <div
@@ -181,16 +183,16 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
               />
             </div>
 
-            {/* 4. 5 Investigadores */}
+            {/* 4. Presupuesto */}
             <div className="relative p-2 sm:p-3 flex flex-col items-center justify-center text-center">
               <div className="text-2xl sm:text-3xl font-serif font-bold text-[#1E293B] tabular-nums text-center">
                 49.000 €
               </div>
               <div className="text-xs text-slate-600 uppercase tracking-wider mt-1 font-mono text-center">
-                Presupuesto
+                {t.hero.budget}
               </div>
               <div className="text-[11px] text-slate-500 mt-0.5 text-center">
-                Financiación del proyecto
+                {t.hero.projectFunding}
               </div>
             </div>
           </div>
@@ -208,7 +210,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
               className="w-full h-9 flex items-center justify-center gap-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold uppercase tracking-wide text-white hover:underline decoration-white decoration-2 underline-offset-4 transition-colors cursor-pointer"
             >
               <BookOpen className="w-4 h-4 text-white shrink-0" />
-              <span className="truncate">Presentación</span>
+              <span className="truncate">{t.hero.btnOverview}</span>
             </button>
 
             <button
@@ -217,7 +219,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
               className="w-full h-9 flex items-center justify-center gap-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold uppercase tracking-wide text-white hover:underline decoration-white decoration-2 underline-offset-4 transition-colors cursor-pointer"
             >
               <Compass className="w-4 h-4 text-white shrink-0" />
-              <span className="truncate">Líneas</span>
+              <span className="truncate">{t.hero.btnLines}</span>
             </button>
 
             <button
@@ -226,7 +228,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
               className="w-full h-9 flex items-center justify-center gap-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold uppercase tracking-wide text-white hover:underline decoration-white decoration-2 underline-offset-4 transition-colors cursor-pointer"
             >
               <Users className="w-4 h-4 text-white shrink-0" />
-              <span className="truncate">Equipo</span>
+              <span className="truncate">{t.hero.btnTeam}</span>
             </button>
 
             <button
@@ -235,7 +237,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
               className="w-full h-9 flex items-center justify-center gap-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold uppercase tracking-wide text-white hover:underline decoration-white decoration-2 underline-offset-4 transition-colors cursor-pointer"
             >
               <Calendar className="w-4 h-4 text-white shrink-0" />
-              <span className="truncate">Actividades</span>
+              <span className="truncate">{t.hero.btnActivities}</span>
             </button>
           </div>
         </div>
@@ -260,7 +262,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
                   Antonio Canova · «La apología de Sócrates ante los jueces» (1790–1792)
                 </h3>
                 <p className="text-stone-400 text-xs mt-0.5">
-                  Bajorrelieve en yeso (gesso) &middot; Gipsoteca Canoviana de Possagno
+                  {t.hero.modalSubtitle}
                 </p>
               </div>
 
@@ -269,7 +271,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
                   type="button"
                   onClick={() => setImageModalOpen(false)}
                   className="p-1.5 text-stone-400 hover:text-white rounded-full bg-white/10 hover:bg-white/20 transition-colors cursor-pointer"
-                  aria-label="Cerrar modal de imagen"
+                  aria-label={t.contactModal.close}
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -300,7 +302,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
                     className="font-serif font-bold text-stone-200 leading-snug mt-1"
                     style={{ fontSize: '23px', fontWeight: 'bold' }}
                   >
-                    «Una vida sin examen no merece ser vivida para el ser humano»
+                    {t.hero.quoteTranslation}
                   </p>
                 </div>
                 <div className="shrink-0 sm:text-right">
@@ -308,12 +310,12 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
                     className="inline-flex items-center px-3 py-1 rounded bg-stone-800 text-stone-300 border border-stone-700 font-sans font-medium tracking-wide"
                     style={{ fontSize: '14px' }}
                   >
-                    Platón, <span className="italic ml-1">Apología de Sócrates</span>&nbsp;38a
+                    {t.hero.quoteSource}
                   </span>
                 </div>
               </div>
               <div className="flex flex-wrap items-center justify-between text-[11px] text-stone-500 font-mono px-1 pt-0.5">
-                <span>Antonio Canova &middot; Gipsoteca de Possagno (1790–1792)</span>
+                <span>{t.hero.modalCaptionLeft}</span>
                 <span>DISOFIA &middot; Universidad de Navarra (PID2025-168764NB-I00)</span>
               </div>
             </div>
@@ -323,4 +325,3 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
     </section>
   );
 }
-

@@ -119,7 +119,13 @@ export interface WorkshopItem {
 
 // --- Carga del contenido editable ---
 import content from '../content.json';
+import contentEn from '../content.en.json';
+import { useLang } from '../i18n/LanguageContext';
 
+// Exportaciones estáticas en español. Se mantienen para utilidades que
+// no son componentes de React (generación de .ics, citas académicas) y
+// como respaldo. Los componentes usan `useDisofiaData()` para obtener
+// el contenido en el idioma activo.
 export const DISOFIA_METADATA = content.metadata as unknown as ProjectMetadata;
 export const PRINCIPAL_INVESTIGATORS = content.principalInvestigators as unknown as PrincipalInvestigator[];
 export const RESEARCH_TEAM = content.researchTeam as unknown as ResearchTeamMember[];
@@ -145,3 +151,41 @@ export interface SeminarInfo {
 
 export const SEMINAR_PROGRAM = content.seminarProgram as unknown as SeminarProgramItem[];
 export const SEMINAR_INFO = content.seminarInfo as unknown as SeminarInfo;
+
+// --- Contenido por idioma ---
+export interface DisofiaData {
+  metadata: ProjectMetadata;
+  principalInvestigators: PrincipalInvestigator[];
+  researchTeam: ResearchTeamMember[];
+  workTeam: WorkTeamMember[];
+  researchLines: ResearchLine[];
+  inauguralSession: SeminarSession;
+  readingList: ReadingItem[];
+  workshops: WorkshopItem[];
+  seminarProgram: SeminarProgramItem[];
+  seminarInfo: SeminarInfo;
+}
+
+function buildData(raw: typeof content): DisofiaData {
+  return {
+    metadata: raw.metadata as unknown as ProjectMetadata,
+    principalInvestigators: raw.principalInvestigators as unknown as PrincipalInvestigator[],
+    researchTeam: raw.researchTeam as unknown as ResearchTeamMember[],
+    workTeam: raw.workTeam as unknown as WorkTeamMember[],
+    researchLines: raw.researchLines as unknown as ResearchLine[],
+    inauguralSession: raw.inauguralSession as unknown as SeminarSession,
+    readingList: raw.readingList as unknown as ReadingItem[],
+    workshops: raw.workshops as unknown as WorkshopItem[],
+    seminarProgram: raw.seminarProgram as unknown as SeminarProgramItem[],
+    seminarInfo: raw.seminarInfo as unknown as SeminarInfo,
+  };
+}
+
+const DATA_ES = buildData(content);
+const DATA_EN = buildData(contentEn as unknown as typeof content);
+
+/** Devuelve el contenido del proyecto en el idioma activo. */
+export function useDisofiaData(): DisofiaData {
+  const { lang } = useLang();
+  return lang === 'en' ? DATA_EN : DATA_ES;
+}

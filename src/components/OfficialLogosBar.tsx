@@ -1,4 +1,7 @@
+import { useT } from '../i18n/LanguageContext';
+
 export function OfficialLogosBar() {
+  const t = useT();
   return (
     <section
       aria-label="Entidades Financiadoras e Instituciones Ejecutoras"
@@ -6,8 +9,8 @@ export function OfficialLogosBar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full items-center">
-          
-          {/* 1. Gobierno de España / Ministerio - Centrado bajo "3 Años" */}
+
+          {/* 1. Gobierno de España / Ministerio */}
           <div className="flex items-center justify-center py-1">
             <div className="flex items-center gap-3 text-left">
               <div className="flex flex-col">
@@ -16,29 +19,29 @@ export function OfficialLogosBar() {
                   <span className="w-2.5 h-3.5 bg-[#F1BF00] inline-block rounded-[1px]"></span>
                   <span className="w-2.5 h-3.5 bg-[#AA151B] inline-block rounded-[1px]"></span>
                   <span className="uppercase font-bold tracking-wider text-stone-800" style={{ fontSize: '13px' }}>
-                    Gobierno de España
+                    {t.logos.govSpain}
                   </span>
                 </div>
                 <span className="font-semibold text-stone-900 tracking-tight leading-tight" style={{ fontSize: '14px' }}>
-                  Ministerio de Ciencia,
+                  {t.logos.ministry1}
                 </span>
                 <span className="font-medium text-stone-700 leading-tight" style={{ fontSize: '13px' }}>
-                  Innovación y Universidades
+                  {t.logos.ministry2}
                 </span>
               </div>
             </div>
           </div>
 
-          {/* 2. AEI - Agencia Estatal de Investigación - Centrado bajo "7 Investigadores" */}
+          {/* 2. AEI - Agencia Estatal de Investigación */}
           <div className="flex items-center justify-center py-1">
             <img
               src="assets/aistudio/aei_logo.png"
-              alt="Agencia Estatal de Investigación (AEI)"
+              alt={t.logos.aeiAlt}
               className="h-12 sm:h-14 w-auto object-contain"
             />
           </div>
 
-          {/* 3. Unión Europea - Centrado bajo "17 Expertos" */}
+          {/* 3. Unión Europea */}
           <div className="flex items-center justify-center py-1">
             <div className="flex items-center gap-2.5 text-left">
               <div className="w-8 h-6 bg-[#003399] rounded-[2px] flex items-center justify-center text-[#FFCC00] text-xs font-bold shadow-xs shrink-0">
@@ -46,35 +49,35 @@ export function OfficialLogosBar() {
               </div>
               <div className="flex flex-col">
                 <span className="font-bold text-stone-900 tracking-tight leading-tight" style={{ fontSize: '14px' }}>
-                  Cofinanciado por la
+                  {t.logos.euPrefix}
                 </span>
                 <span className="font-semibold text-[#003399] leading-tight" style={{ fontSize: '14px' }}>
-                  Unión Europea
+                  {t.logos.euName}
                 </span>
                 <span className="text-stone-500" style={{ fontSize: '13px' }}>
-                  Fondo Social Europeo / FEDER
+                  {t.logos.euFund}
                 </span>
               </div>
             </div>
           </div>
 
-          {/* 4. Universidad de Navarra - Centrado bajo "5 Investigadores" */}
+          {/* 4. Universidad de Navarra */}
           <div className="flex items-center justify-center py-1">
             <div className="flex items-center gap-3 text-left">
               <img
                 src="assets/aistudio/unav_seal_red.png"
-                alt="Escudo de la Universidad de Navarra"
+                alt={t.logos.unavSealAlt}
                 className="h-12 sm:h-14 w-auto object-contain shrink-0"
               />
               <div className="flex flex-col">
                 <span className="font-bold text-stone-900 tracking-tight leading-tight" style={{ fontSize: '14px' }}>
-                  Universidad de Navarra
+                  {t.logos.unav}
                 </span>
                 <span className="text-stone-600 leading-tight" style={{ fontSize: '14px' }}>
-                  Facultad de Filosofía y Letras
+                  {t.logos.unavFaculty}
                 </span>
                 <span className="text-[#8B1E24] font-medium mt-0.5" style={{ fontSize: '13px' }}>
-                  Entidad Solicitante / Ejecutora
+                  {t.logos.unavRole}
                 </span>
               </div>
             </div>

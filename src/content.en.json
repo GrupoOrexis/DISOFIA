@@ -1,0 +1,554 @@
+{
+  "metadata": {
+    "title": "Socratic Dialectic and Philosophy as a Way of Life",
+    "subtitle": "Non-oriented research project, Type B · Knowledge Generation Projects Call (AEI / MCIN)",
+    "acronym": "DISOFIA",
+    "reference": "PID2025-168764NB-I00",
+    "modality": "Non-oriented research projects, Type B",
+    "period": "2026 – 2029",
+    "startDate": "1 September 2026",
+    "endDate": "31 August 2029",
+    "area": "Mind, Language and Thought (Philosophy)",
+    "executingEntity": "University of Navarra",
+    "faculty": "School of Philosophy and Letters",
+    "department": "Department of Philosophy",
+    "fundingEntity": "State Research Agency (AEI) / Ministry of Science, Innovation and Universities",
+    "fundingCode": "MCIN/AEI/10.13039/501100011033",
+    "coFinancing": "Co-financed by the European Union (European Social Fund / ERDF)",
+    "executiveSummary": "A systematic study of Socratic dialectic as a practice that integrates rational inquiry, existential transformation, and the transmission of a way of life.",
+    "plannedOutputs": {
+      "articles": "~20 articles indexed in high-impact journals (JCR / SJR)",
+      "monographs": "2 specialized scholarly monographs",
+      "collectiveVolume": "1 international reference edited volume",
+      "translation": "1 annotated critical translation (Plato, Republic I)"
+    },
+    "indicators": {
+      "workTeamTotal": 23,
+      "men": 17,
+      "women": 6,
+      "phdTheses": 7,
+      "indexedPublications": 20
+    }
+  },
+  "principalInvestigators": [
+    {
+      "name": "Miquel Solans",
+      "title": "PhD in Philosophy",
+      "academicPosition": "Associate Professor",
+      "orcid": "0000-0002-0182-6213",
+      "orcidUrl": "https://orcid.org/0000-0002-0182-6213",
+      "email": "msolans@unav.es",
+      "institution": "University of Navarra (School of Philosophy and Letters, Dept. of Philosophy)",
+      "institutionShort": "UNAV",
+      "role": "Principal Investigator 1 (PI1)",
+      "location": "Pamplona, Spain",
+      "specialty": "Ancient Philosophy, Socrates and Platonism, Philosophy as a Way of Life"
+    },
+    {
+      "name": "Daniel Doyle",
+      "title": "PhD in Philosophy",
+      "academicPosition": "Associate Professor",
+      "orcid": "0000-0001-5751-4836",
+      "orcidUrl": "https://orcid.org/0000-0001-5751-4836",
+      "email": "ddoyle@unav.es",
+      "institution": "University of Navarra (School of Philosophy and Letters, Dept. of Philosophy)",
+      "institutionShort": "UNAV",
+      "role": "Principal Investigator 2 (PI2)",
+      "location": "Pamplona, Spain",
+      "specialty": "Greek Philosophy, Socratic Dialectic, Philosophical Hermeneutics"
+    }
+  ],
+  "researchTeam": [
+    {
+      "name": "Iván de los Ríos",
+      "institution": "Universidad Autónoma de Madrid",
+      "institutionShort": "UAM",
+      "role": "Research Team (RT)",
+      "location": "Madrid, Spain",
+      "specialty": "Hellenistic Philosophy, Ancient Ethics, Cynicism and Stoicism",
+      "orcid": "0000-0002-3804-5402",
+      "orcidUrl": "https://orcid.org/0000-0002-3804-5402"
+    },
+    {
+      "name": "David Torrijos Castrillejo",
+      "institution": "Universidad Eclesiástica San Dámaso",
+      "institutionShort": "UESD",
+      "role": "Research Team (RT)",
+      "location": "Madrid, Spain",
+      "specialty": "Classical Metaphysics, Platonic and Aristotelian Tradition",
+      "orcid": "0000-0003-2005-5634",
+      "orcidUrl": "https://orcid.org/0000-0003-2005-5634"
+    },
+    {
+      "name": "Miguel Martí Sánchez",
+      "institution": "Universidad Francisco de Vitoria",
+      "institutionShort": "UFV",
+      "role": "Research Team (RT)",
+      "location": "Madrid, Spain",
+      "specialty": "Classical Ethics, Socratic Dialectic, Practical Philosophy",
+      "orcid": "0000-0003-1575-3745",
+      "orcidUrl": "https://orcid.org/0000-0003-1575-3745"
+    },
+    {
+      "name": "Vojtech Kolomy",
+      "institution": "University of Navarra",
+      "institutionShort": "UNAV",
+      "role": "Research Team (RT)",
+      "location": "Pamplona, Spain",
+      "specialty": "Ancient Philosophy, Platonic Dialectic",
+      "orcid": "0000-0003-3064-3480",
+      "orcidUrl": "https://orcid.org/0000-0003-3064-3480"
+    },
+    {
+      "name": "Marcela Duque Ramírez",
+      "institution": "Universidad Francisco de Vitoria",
+      "institutionShort": "UFV",
+      "role": "Research Team (RT)",
+      "location": "Madrid, Spain",
+      "specialty": "Philosophical Anthropology, Poetics and Affectivity",
+      "orcid": "0009-0002-7634-124X",
+      "orcidUrl": "https://orcid.org/0009-0002-7634-124X"
+    }
+  ],
+  "workTeam": [
+    {
+      "name": "Alejandro Vigo Pacheco",
+      "institution": "Universidad de los Andes",
+      "institutionShort": "UANDES",
+      "country": "Chile",
+      "region": "Latinoamérica",
+      "category": "Colaborador Internacional",
+      "gender": "M",
+      "flag": "🇨🇱"
+    },
+    {
+      "name": "Ariel Vecchio",
+      "institution": "UNSAM / CONICET",
+      "institutionShort": "CONICET",
+      "country": "Argentina",
+      "region": "Latinoamérica",
+      "category": "Colaborador Internacional",
+      "gender": "M",
+      "flag": "🇦🇷"
+    },
+    {
+      "name": "Claudia Carbonell",
+      "institution": "Universidad de Piura",
+      "institutionShort": "UDEP",
+      "country": "Peru",
+      "region": "Latinoamérica",
+      "category": "Colaborador Internacional",
+      "gender": "F",
+      "flag": "🇵🇪"
+    },
+    {
+      "name": "Cristina Ionescu",
+      "institution": "The Catholic University of America (CUA)",
+      "institutionShort": "CUA",
+      "country": "United States",
+      "region": "Norteamérica",
+      "category": "Colaborador Internacional",
+      "gender": "F",
+      "flag": "🇺🇸"
+    },
+    {
+      "name": "Daniel Vázquez",
+      "institution": "Mary Immaculate College",
+      "institutionShort": "MIC",
+      "country": "Ireland",
+      "region": "Europa",
+      "category": "Colaborador Internacional",
+      "gender": "M",
+      "flag": "🇮🇪"
+    },
+    {
+      "name": "Francisco Javier Aoiz Monreal",
+      "institution": "Universidad de Santiago de Chile",
+      "institutionShort": "USACH",
+      "country": "Chile",
+      "region": "Latinoamérica",
+      "category": "Colaborador Internacional",
+      "gender": "M",
+      "flag": "🇨🇱"
+    },
+    {
+      "name": "Frisbee C.C. Sheffield",
+      "institution": "University of Cambridge",
+      "institutionShort": "Cambridge",
+      "country": "United Kingdom",
+      "region": "Europa",
+      "category": "Colaborador Internacional",
+      "gender": "M",
+      "flag": "🇬🇧"
+    },
+    {
+      "name": "Gabriela Rossi",
+      "institution": "Universidad de los Andes",
+      "institutionShort": "UANDES",
+      "country": "Chile",
+      "region": "Latinoamérica",
+      "category": "Colaborador Internacional",
+      "gender": "F",
+      "flag": "🇨🇱"
+    },
+    {
+      "name": "Jacob Samuel Klein",
+      "institution": "Colgate University",
+      "institutionShort": "Colgate",
+      "country": "United States",
+      "region": "Norteamérica",
+      "category": "Colaborador Internacional",
+      "gender": "M",
+      "flag": "🇺🇸"
+    },
+    {
+      "name": "Jens Kristian Larsen",
+      "institution": "NTNU (Norwegian University of Science and Technology)",
+      "institutionShort": "NTNU",
+      "country": "Norway",
+      "region": "Europa",
+      "category": "Colaborador Internacional",
+      "gender": "M",
+      "flag": "🇳🇴"
+    },
+    {
+      "name": "John Sellars",
+      "institution": "Royal Holloway, University of London",
+      "institutionShort": "RHUL",
+      "country": "United Kingdom",
+      "region": "Europa",
+      "category": "Colaborador Internacional",
+      "gender": "M",
+      "flag": "🇬🇧"
+    },
+    {
+      "name": "José Alberto Ross",
+      "institution": "Universidad Panamericana",
+      "institutionShort": "UP",
+      "country": "Mexico",
+      "region": "Latinoamérica",
+      "category": "Colaborador Internacional",
+      "gender": "M",
+      "flag": "🇲🇽"
+    },
+    {
+      "name": "José Antonio Giménez",
+      "institution": "Universidad de los Andes",
+      "institutionShort": "UANDES",
+      "country": "Chile",
+      "region": "Latinoamérica",
+      "category": "Colaborador Internacional",
+      "gender": "M",
+      "flag": "🇨🇱"
+    },
+    {
+      "name": "Katja Vogt",
+      "institution": "Columbia University",
+      "institutionShort": "Columbia",
+      "country": "United States",
+      "region": "Norteamérica",
+      "category": "Colaborador Internacional",
+      "gender": "F",
+      "flag": "🇺🇸"
+    },
+    {
+      "name": "Marcelo Boeri",
+      "institution": "Pontificia Universidad Católica de Chile",
+      "institutionShort": "PUC",
+      "country": "Chile",
+      "region": "Latinoamérica",
+      "category": "Colaborador Internacional",
+      "gender": "M",
+      "flag": "🇨🇱"
+    },
+    {
+      "name": "Noburu Notomi",
+      "institution": "University of Tokyo",
+      "institutionShort": "UTokyo",
+      "country": "Japan",
+      "region": "Asia",
+      "category": "Colaborador Internacional",
+      "gender": "M",
+      "flag": "🇯🇵"
+    },
+    {
+      "name": "Santiago Chame",
+      "institution": "Ludwig-Maximilians-Universität München (LMU)",
+      "institutionShort": "LMU",
+      "country": "Germany",
+      "region": "Europa",
+      "category": "Colaborador Internacional",
+      "gender": "M",
+      "flag": "🇩🇪"
+    },
+    {
+      "name": "Bruno Julio Rossi",
+      "institution": "University of Navarra",
+      "institutionShort": "UNAV",
+      "country": "Spain / Argentina",
+      "region": "España",
+      "category": "Investigador en Formación / Predoc",
+      "gender": "M",
+      "isPhdCandidate": true,
+      "flag": "🇪🇸"
+    },
+    {
+      "name": "Jan Podhorski",
+      "institution": "University of Navarra",
+      "institutionShort": "UNAV",
+      "country": "Spain / Poland",
+      "region": "España",
+      "category": "Investigador en Formación / Predoc",
+      "gender": "M",
+      "isPhdCandidate": true,
+      "flag": "🇪🇸"
+    },
+    {
+      "name": "María Arévalo",
+      "institution": "University of Notre Dame",
+      "institutionShort": "Notre Dame",
+      "country": "United States",
+      "region": "Norteamérica",
+      "category": "Investigador en Formación / Predoc",
+      "gender": "F",
+      "isPhdCandidate": true,
+      "flag": "🇺🇸"
+    },
+    {
+      "name": "María Sáez Marcos",
+      "institution": "University of Navarra",
+      "institutionShort": "UNAV",
+      "country": "Spain",
+      "region": "España",
+      "category": "Investigador en Formación / Predoc",
+      "gender": "F",
+      "isPhdCandidate": true,
+      "flag": "🇪🇸"
+    },
+    {
+      "name": "Mikel Martínez Cirero",
+      "institution": "VCC Group · Institute for Culture and Society (ICS)",
+      "institutionShort": "ICS · UNAV",
+      "country": "Spain",
+      "region": "España",
+      "category": "Colaborador Internacional",
+      "gender": "M",
+      "isPhdCandidate": false,
+      "flag": "🇪🇸"
+    },
+    {
+      "name": "Orestes Barbero Salces",
+      "institution": "University of Navarra",
+      "institutionShort": "UNAV",
+      "country": "Spain",
+      "region": "España",
+      "category": "Investigador en Formación / Predoc",
+      "gender": "M",
+      "isPhdCandidate": true,
+      "flag": "🇪🇸"
+    }
+  ],
+  "researchLines": [
+    {
+      "id": "linea-1",
+      "number": "01",
+      "title": "Dialectic and Ignorance as Self-Deception",
+      "shortDescription": "A study of Socratic examination as a process of rational self-clarification against the illusion of knowledge.",
+      "extendedDescription": "Against purely refutative or eristic readings, this line approaches Socratic aporia not as a mere logical dead end but as the dialectical engine that dismantles the self-concealing structure of error and reveals the subject's fundamental self-deception.",
+      "keyConcepts": [
+        "Existential aporia",
+        "Elenchos",
+        "Self-deception",
+        "Learned ignorance",
+        "Episteme vs. Doxa"
+      ],
+      "philosophicalQuestions": [
+        "Why does moral and epistemic error tend to protect itself?",
+        "How can the perplexity induced by dialogue open up space for genuine learning?",
+        "In what way does dialogical examination transform the interlocutor's background beliefs?"
+      ]
+    },
+    {
+      "id": "linea-2",
+      "number": "02",
+      "title": "Dialectic and Affectivity",
+      "shortDescription": "An analysis of the constitutive role of emotions such as perplexity, shame, wonder, and friendship.",
+      "extendedDescription": "Socratic rationality does not operate in an impassive vacuum. We investigate how affects (the blush of dialectical shame, wonder, perplexity, pedagogical eros, and philia) are intrinsic conditions for dialectical reasoning to generate existential commitment and a change of life.",
+      "keyConcepts": [
+        "Aidos (Shame)",
+        "Thauma (Wonder)",
+        "Philosophical eros",
+        "Philia (Dialogical friendship)",
+        "Pathos and Logos"
+      ],
+      "philosophicalQuestions": [
+        "Is shame a morally indispensable emotion in Socratic refutation?",
+        "What role does intellectual friendship play in shared dialectical perseverance?",
+        "How does Socrates overcome the modern dichotomy between emotion and pure reason?"
+      ]
+    },
+    {
+      "id": "linea-3",
+      "number": "03",
+      "title": "Dialectic and Transmission (Pedagogical and Political)",
+      "shortDescription": "The pedagogical and political dimensions of Socratic paideia and its contemporary reception.",
+      "extendedDescription": "We examine Socratic paideia as a public, communal, and political proposal, analyzing how critical examination is transmitted from person to person and how it has been reactivated in ancient philosophy (Hellenism, Stoicism, Cynicism) and in contemporary philosophy (both analytic and continental, from Foucault and Hadot to McDowell and Callard).",
+      "keyConcepts": [
+        "Socratic paideia",
+        "Epimeleia heautou (Care of the self)",
+        "Socratic politeia",
+        "Hellenistic tradition",
+        "Analytic and continental reception"
+      ],
+      "philosophicalQuestions": [
+        "How does Socrates reconcile private, individual questioning with the well-being of the polis?",
+        "In what sense does Philosophy as a Way of Life (PWL) require rigorous logic and not merely aseptic practices?",
+        "What lessons does Socratic practice offer for the deliberative challenges of contemporary democracies?"
+      ]
+    }
+  ],
+  "inauguralSession": {
+    "title": "Opening Session of the DISOFIA Permanent Reading Seminar",
+    "date": "Wednesday, 4 November 2026",
+    "isoDate": "2026-11-04T12:00:00",
+    "durationHours": 1.5,
+    "time": "12:00 – 13:30 (Spanish peninsular time)",
+    "location": "University of Navarra (Pamplona Campus)",
+    "room": "Room 2280 · Department of Philosophy Seminar",
+    "book": "Open Socrates",
+    "publisherYear": "Kairós, 2025",
+    "speaker": "Miguel Martí Sánchez",
+    "speakerAffiliation": "Research Team member (RT) · Universidad Francisco de Vitoria (UFV)",
+    "description": "Opening of the 2026–2027 DISOFIA reading cycle with a discussion of Agnes Callard's recent monograph. An analysis of Socratic radicality in ordinary conversation and the refutation of moral self-deception."
+  },
+  "readingList": [
+    {
+      "id": "read-1",
+      "author": "Agnes Callard",
+      "title": "Open Socrates",
+      "editorial": "Allen Lane / Kairós",
+      "year": "2025",
+      "type": "Monografía",
+      "notes": "An examination of the Socratic figure as a model of radical disagreement and dialogical transformation in the present."
+    },
+    {
+      "id": "read-2",
+      "author": "D. Futter",
+      "title": "Socrates' Search for Wisdom. An Exegetical Theory",
+      "editorial": "Routledge",
+      "year": "2025",
+      "type": "Estudio Exegético",
+      "notes": "An analytic and textual reconstruction of the Socratic method of inquiry in the early Platonic dialogues."
+    },
+    {
+      "id": "read-3",
+      "author": "Pierre Hadot",
+      "title": "What Is Ancient Philosophy?",
+      "editorial": "Harvard University Press",
+      "year": "2000",
+      "type": "Clásico / Ejercicios",
+      "notes": "A canonical work on the conception of philosophy as a choice of life (bios) rather than doctrinal discourse."
+    },
+    {
+      "id": "read-4",
+      "author": "Pierre Hadot",
+      "title": "Spiritual Exercises and Ancient Philosophy",
+      "editorial": "Siruela",
+      "year": "2006",
+      "type": "Clásico / Ejercicios",
+      "notes": "The articulation between dialectical askesis, epimeleia heautou, and the transformation of the cosmic and moral gaze."
+    },
+    {
+      "id": "read-5",
+      "author": "Plato",
+      "title": "Republic, Book I (Classical Greek reading and translation seminar)",
+      "editorial": "Bilingual critical edition (OCT / Gredos)",
+      "year": "Classic",
+      "type": "Traducción y Seminario",
+      "notes": "A close analysis of the dialogue with Cephalus, Polemarchus, and Thrasymachus's violent aporetic intrusion."
+    }
+  ],
+  "workshops": [
+    {
+      "id": "ws-1",
+      "edition": "I DISOFIA International Workshop",
+      "title": "Dialectic and Philosophy as a Way of Life in Socrates",
+      "topic": "Epistemic foundations, affectivity, and care of the self in Platonic and Hellenistic Socratism.",
+      "date": "April 2027",
+      "location": "University of Navarra, Pamplona (Spain)",
+      "status": "Confirmado"
+    },
+    {
+      "id": "ws-2",
+      "edition": "II DISOFIA International Workshop",
+      "title": "Affects, Ignorance, and Dialogical Community",
+      "topic": "Shame, wonder, political friendship, and the limits of rational refutation.",
+      "date": "Spring 2028",
+      "location": "Universidad Francisco de Vitoria, Madrid (Spain)",
+      "status": "En preparación"
+    }
+  ],
+  "seminarProgram": [
+    {
+      "n": 1,
+      "work": "Callard, “Open Socrates” — Part II: “The Socratic Method”",
+      "speaker": "Miguel Martí",
+      "affiliation": "UFV",
+      "date": "4 Nov 2026 · 12:00–13:30"
+    },
+    {
+      "n": 2,
+      "work": "Futter, “Socrates' Search for Wisdom. An Exegetical Theory” — Chs. 2 “Argument and Inquiry”, 10 “Meno” and 21 “An Art of Living”",
+      "speaker": "Miquel Solans",
+      "affiliation": "UNAV",
+      "date": "16 Dec 2026 · 12:00–13:30"
+    },
+    {
+      "n": 3,
+      "work": "Hadot, “What Is Ancient Philosophy?” — Part One: “The Figure of Socrates”",
+      "speaker": "María Sáez",
+      "affiliation": "UNAV",
+      "date": "Jan 2027"
+    },
+    {
+      "n": 4,
+      "work": "Hadot, “What Is Ancient Philosophy?” — Part Two: “The Schools”",
+      "speaker": "David Torrijos",
+      "affiliation": "UESD",
+      "date": "Feb 2027"
+    },
+    {
+      "n": 5,
+      "work": "Hadot, “Spiritual Exercises” — Ch. “Spiritual Exercises”",
+      "speaker": "Mikel Martínez",
+      "affiliation": "DISOFIA",
+      "date": "Mar 2027"
+    },
+    {
+      "n": 6,
+      "work": "Hadot, “Spiritual Exercises” — Ch. on Marcus Aurelius",
+      "speaker": "Daniel Doyle",
+      "affiliation": "UNAV",
+      "date": "Apr 2027"
+    },
+    {
+      "n": 7,
+      "work": "Hadot, “Spiritual Exercises” — Chs. “Conversion” and “Philosophy as a Way of Life”",
+      "speaker": "Iván de los Ríos",
+      "affiliation": "UAM",
+      "date": "May 2027"
+    },
+    {
+      "n": 8,
+      "work": "Cooper, “Pursuits of Wisdom” — “Stoicism”",
+      "speaker": "Daniel Doyle",
+      "affiliation": "UNAV",
+      "date": "Jun 2027"
+    }
+  ],
+  "seminarInfo": {
+    "course": "Academic Year 2026–2027",
+    "location": "Department of Philosophy Seminar Room (2280) · University of Navarra",
+    "contacts": "Daniel Doyle (ddoyle@unav.es) · Miquel Solans (msolans@unav.es)"
+  }
+}

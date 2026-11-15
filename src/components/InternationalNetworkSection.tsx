@@ -7,24 +7,30 @@ import {
   Table as TableIcon,
   Users,
 } from 'lucide-react';
-import { WORK_TEAM } from '../data/disofiaData';
+import { useDisofiaData } from '../data/disofiaData';
+import { useLang } from '../i18n/LanguageContext';
+import { REGION_LABELS } from '../i18n/translations';
 import { filterWorkTeam } from '../utils/helpers';
 
 export function InternationalNetworkSection() {
+  const { lang, t } = useLang();
+  const { workTeam } = useDisofiaData();
   const [selectedRegion, setSelectedRegion] = useState<string>('all');
   const [selectedCategory, setSelectedCategory] = useState<'all' | 'international' | 'predoc'>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [viewMode, setViewMode] = useState<'table' | 'cards'>('table');
 
+  const regionLabel = (r: string) => REGION_LABELS[r]?.[lang] ?? r;
+
   const filteredMembers = filterWorkTeam(
-    WORK_TEAM,
+    workTeam,
     searchQuery,
     selectedRegion,
     selectedCategory === 'all' ? 'all' : selectedCategory === 'international' ? 'international' : 'predoc'
   );
 
-  const predocCount = WORK_TEAM.filter((m) => m.category === 'Investigador en Formación / Predoc').length;
-  const collabCount = WORK_TEAM.filter((m) => m.category === 'Colaborador Internacional').length;
+  const predocCount = workTeam.filter((m) => m.category === 'Investigador en Formación / Predoc').length;
+  const collabCount = workTeam.filter((m) => m.category === 'Colaborador Internacional').length;
 
   const internationalList = filteredMembers
     .filter((m) => m.category === 'Colaborador Internacional')
@@ -33,89 +39,76 @@ export function InternationalNetworkSection() {
     .filter((m) => m.category === 'Investigador en Formación / Predoc')
     .sort((a, b) => a.name.localeCompare(b.name, 'es', { sensitivity: 'base' }));
 
-  const regions = [
-    { id: 'all', label: 'Todas las Regiones' },
-    { id: 'España', label: 'España' },
-    { id: 'Europa', label: 'Europa' },
-    { id: 'Norteamérica', label: 'Norteamérica' },
-    { id: 'Latinoamérica', label: 'Latinoamérica' },
-    { id: 'Asia', label: 'Asia' },
-  ];
-
   return (
     <section id="colaboradores" className="py-16 sm:py-20 bg-stone-50/70 border-b border-stone-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <div className="mb-10">
           <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#8B1E24] mb-2 font-mono">
-            <span>Equipo de Trabajo Oficial</span>
+            <span>{t.network.eyebrow}</span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-stone-900 tracking-tight">
-            3. Equipo de Trabajo y Red Internacional ({WORK_TEAM.length} Miembros)
+            {t.network.titlePrefix} ({workTeam.length} {t.network.members})
           </h2>
           <p className="text-stone-600 mt-2 max-w-3xl text-sm sm:text-base">
-            El Equipo de Trabajo oficial de DISOFIA articula tanto a una red internacional de especialistas de referencia en filosofía clásica como a los investigadores doctorales vinculados al proyecto (nacionales e internacionales).
+            {t.network.intro}
           </p>
           <div className="w-16 h-1 bg-[#8B1E24] mt-3"></div>
         </div>
 
-        {/* Indicators Card Banner: Subdivisión de Equipo de Trabajo */}
+        {/* Indicators Card Banner */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8 bg-white p-5 rounded-lg border border-stone-200 shadow-xs">
           <div className="sm:border-r border-stone-100 pr-3 pb-3 sm:pb-0 border-b sm:border-b-0">
             <span className="text-xs font-mono text-stone-500 uppercase tracking-wider block">
-              Equipo de Trabajo
+              {t.network.workTeam}
             </span>
             <span className="text-2xl sm:text-3xl font-serif font-bold text-stone-900 tabular-nums">
-              {WORK_TEAM.length}
+              {workTeam.length}
             </span>
             <span className="text-[11px] text-stone-500 block mt-0.5">
-              Miembros oficiales del proyecto
+              {t.network.workTeamSub}
             </span>
           </div>
 
           <div className="sm:border-r border-stone-100 pr-3 pb-3 sm:pb-0 border-b sm:border-b-0">
             <span className="text-xs font-mono text-stone-500 uppercase tracking-wider block">
-              Colaboradores Internacionales
+              {t.network.intlCollaborators}
             </span>
             <div className="flex items-baseline gap-2">
               <span className="text-2xl sm:text-3xl font-serif font-bold text-[#8B1E24] tabular-nums">
                 {collabCount}
               </span>
               <span className="text-xs font-mono text-stone-500">
-                especialistas
+                {t.network.specialists}
               </span>
             </div>
             <span className="text-[11px] text-stone-500 block mt-0.5">
-              Colaboradores internacionales
+              {t.network.intlCollaboratorsSub}
             </span>
           </div>
 
           <div>
             <span className="text-xs font-mono text-stone-500 uppercase tracking-wider block">
-              Investigadores Doctorales
+              {t.network.doctoralResearchers}
             </span>
             <div className="flex items-baseline gap-2">
               <span className="text-2xl sm:text-3xl font-serif font-bold text-stone-900 tabular-nums">
                 {predocCount}
               </span>
               <span className="text-xs font-mono text-stone-500">
-                doctorandos
+                {t.network.phdCandidates}
               </span>
             </div>
             <span className="text-[11px] text-stone-500 block mt-0.5">
-              Nacionales e internacionales vinculados
+              {t.network.doctoralResearchersSub}
             </span>
           </div>
         </div>
 
         {/* Filters and Search Bar */}
         <div className="bg-white px-4 py-3 rounded-lg border border-stone-200 mb-6 shadow-xs">
-          
-          {/* Top row: Category Tabs + View Mode */}
           <div className="flex flex-wrap items-center justify-between gap-4">
-            
-            {/* Category tabs: Colaboradores internacionales primero, luego Investigadores doctorales */}
             <div className="flex flex-wrap items-center gap-1.5">
               <button
                 type="button"
@@ -126,7 +119,7 @@ export function InternationalNetworkSection() {
                     : 'text-stone-600 hover:text-stone-900 bg-stone-100 hover:bg-stone-200'
                 }`}
               >
-                Todos los Miembros ({WORK_TEAM.length})
+                {t.network.allMembers} ({workTeam.length})
               </button>
 
               <button
@@ -138,7 +131,7 @@ export function InternationalNetworkSection() {
                     : 'text-stone-600 hover:text-stone-900 bg-stone-100 hover:bg-stone-200'
                 }`}
               >
-                Colaboradores Internacionales ({collabCount})
+                {t.network.intlCollaborators} ({collabCount})
               </button>
 
               <button
@@ -150,11 +143,10 @@ export function InternationalNetworkSection() {
                     : 'text-stone-600 hover:text-stone-900 bg-stone-100 hover:bg-stone-200'
                 }`}
               >
-                Investigadores Doctorales ({predocCount})
+                {t.network.doctoralResearchers} ({predocCount})
               </button>
             </div>
 
-            {/* Right cluster: buscador + conmutador de vista */}
             <div className="flex items-center gap-2">
               <div className="relative w-44 sm:w-56">
                 <Search className="w-3.5 h-3.5 text-stone-400 absolute left-2.5 top-1/2 -translate-y-1/2" />
@@ -162,12 +154,11 @@ export function InternationalNetworkSection() {
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Buscar por nombre o centro..."
+                  placeholder={t.network.searchPlaceholder}
                   className="w-full pl-8 pr-3 py-1.5 text-xs bg-stone-50 border border-stone-200 rounded text-stone-800 focus:outline-none focus:ring-1 focus:ring-[#8B1E24]"
                 />
               </div>
 
-              {/* View switcher */}
               <div className="flex items-center border border-stone-200 rounded p-0.5 bg-stone-50 shrink-0">
                 <button
                   type="button"
@@ -175,8 +166,8 @@ export function InternationalNetworkSection() {
                   className={`p-1.5 rounded transition-colors cursor-pointer ${
                     viewMode === 'table' ? 'bg-white text-stone-900 shadow-xs' : 'text-stone-500 hover:text-stone-800'
                   }`}
-                  title="Vista Tabla Académica"
-                  aria-label="Vista Tabla Académica"
+                  title={t.network.tableView}
+                  aria-label={t.network.tableView}
                 >
                   <TableIcon className="w-4 h-4" />
                 </button>
@@ -186,16 +177,14 @@ export function InternationalNetworkSection() {
                   className={`p-1.5 rounded transition-colors cursor-pointer ${
                     viewMode === 'cards' ? 'bg-white text-stone-900 shadow-xs' : 'text-stone-500 hover:text-stone-800'
                   }`}
-                  title="Vista Tarjetas"
-                  aria-label="Vista Tarjetas"
+                  title={t.network.cardsView}
+                  aria-label={t.network.cardsView}
                 >
                   <LayoutGrid className="w-4 h-4" />
                 </button>
               </div>
             </div>
-
           </div>
-
         </div>
 
         {/* Content Presentation */}
@@ -204,21 +193,20 @@ export function InternationalNetworkSection() {
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="bg-slate-900 text-stone-100 font-serif text-sm border-b border-stone-800">
-                  <th className="py-3.5 px-4 font-semibold">Investigador / Investigadora</th>
-                  <th className="py-3.5 px-4 font-semibold">Institución Académica</th>
-                  <th className="py-3.5 px-4 font-semibold">País / Región</th>
-                  <th className="py-3.5 px-4 font-semibold">Función en el Proyecto</th>
+                  <th className="py-3.5 px-4 font-semibold">{t.network.thResearcher}</th>
+                  <th className="py-3.5 px-4 font-semibold">{t.network.thInstitution}</th>
+                  <th className="py-3.5 px-4 font-semibold">{t.network.thCountryRegion}</th>
+                  <th className="py-3.5 px-4 font-semibold">{t.network.thRole}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-stone-100 text-xs sm:text-sm">
-                {/* 1. Bloque: Colaboradores Internacionales (Primero) */}
                 {internationalList.length > 0 && (
                   <>
                     <tr id="expertos-internacionales" className="scroll-mt-24 bg-stone-100/90 border-y border-stone-200 text-xs font-bold text-stone-800">
                       <td colSpan={4} className="py-2.5 px-4 font-serif">
                         <div className="flex items-center gap-2">
                           <Globe2 className="w-4 h-4 text-[#8B1E24]" />
-                          <span>1. Colaboradores Internacionales ({internationalList.length})</span>
+                          <span>{t.network.blockIntl} ({internationalList.length})</span>
                         </div>
                       </td>
                     </tr>
@@ -240,13 +228,13 @@ export function InternationalNetworkSection() {
                         </td>
                         <td className="py-3 px-4 text-stone-600">
                           <span className="inline-block text-xs font-medium bg-stone-100 px-2 py-0.5 rounded">
-                            {member.country} ({member.region})
+                            {member.country} ({regionLabel(member.region)})
                           </span>
                         </td>
                         <td className="py-3 px-4">
                           <span className="inline-flex items-center gap-1 text-[11px] font-medium text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded border border-slate-200">
                             <Globe2 className="w-3 h-3 text-slate-500" />
-                            <span>Colaborador Internacional</span>
+                            <span>{t.network.roleIntl}</span>
                           </span>
                         </td>
                       </tr>
@@ -254,14 +242,13 @@ export function InternationalNetworkSection() {
                   </>
                 )}
 
-                {/* 2. Bloque: Investigadores Doctorales vinculados al proyecto (Nacionales e Internacionales) */}
                 {doctoralList.length > 0 && (
                   <>
                     <tr id="investigadores-predoctorales" className="scroll-mt-24 bg-stone-100/90 border-y border-stone-200 text-xs font-bold text-stone-800">
                       <td colSpan={4} className="py-2.5 px-4 font-serif">
                         <div className="flex items-center gap-2">
                           <GraduationCap className="w-4 h-4 text-[#8B1E24]" />
-                          <span>2. Investigadores Doctorales vinculados al proyecto (Nacionales e Internacionales) ({doctoralList.length})</span>
+                          <span>{t.network.blockDoctoral} ({doctoralList.length})</span>
                         </div>
                       </td>
                     </tr>
@@ -283,13 +270,13 @@ export function InternationalNetworkSection() {
                         </td>
                         <td className="py-3 px-4 text-stone-600">
                           <span className="inline-block text-xs font-medium bg-stone-100 px-2 py-0.5 rounded">
-                            {member.country} ({member.region})
+                            {member.country} ({regionLabel(member.region)})
                           </span>
                         </td>
                         <td className="py-3 px-4">
                           <span className="inline-flex items-center gap-1 text-[11px] font-medium text-[#8B1E24] bg-red-50 px-2.5 py-0.5 rounded border border-red-200">
                             <GraduationCap className="w-3 h-3 text-[#8B1E24]" />
-                            <span>Investigador Doctoral Vinculado</span>
+                            <span>{t.network.roleDoctoral}</span>
                           </span>
                         </td>
                       </tr>
@@ -305,7 +292,7 @@ export function InternationalNetworkSection() {
               <div>
                 <h3 className="font-serif font-bold text-lg text-stone-900 mb-3 flex items-center gap-2 pb-2 border-b border-stone-200">
                   <Globe2 className="w-4 h-4 text-[#8B1E24]" />
-                  <span>1. Colaboradores Internacionales ({internationalList.length})</span>
+                  <span>{t.network.blockIntl} ({internationalList.length})</span>
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {internationalList.map((member, idx) => (
@@ -317,7 +304,7 @@ export function InternationalNetworkSection() {
                         <div className="flex items-center justify-between mb-2">
                           <span className="text-xl">{member.flag}</span>
                           <span className="text-[11px] font-mono text-stone-500 bg-stone-100 px-2 py-0.5 rounded">
-                            {member.region}
+                            {regionLabel(member.region)}
                           </span>
                         </div>
                         <h4 className="font-serif font-bold text-base sm:text-lg text-stone-900 mb-1">
@@ -332,7 +319,7 @@ export function InternationalNetworkSection() {
                           {member.country}
                         </span>
                         <span className="text-[11px] font-semibold text-slate-700">
-                          Colaborador Int.
+                          {t.network.roleIntlShort}
                         </span>
                       </div>
                     </div>
@@ -345,7 +332,7 @@ export function InternationalNetworkSection() {
               <div>
                 <h3 className="font-serif font-bold text-lg text-stone-900 mb-3 flex items-center gap-2 pb-2 border-b border-stone-200">
                   <GraduationCap className="w-4 h-4 text-[#8B1E24]" />
-                  <span>2. Investigadores Doctorales vinculados al proyecto (Nacionales e Internacionales) ({doctoralList.length})</span>
+                  <span>{t.network.blockDoctoral} ({doctoralList.length})</span>
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {doctoralList.map((member, idx) => (
@@ -357,7 +344,7 @@ export function InternationalNetworkSection() {
                         <div className="flex items-center justify-between mb-2">
                           <span className="text-xl">{member.flag}</span>
                           <span className="text-[11px] font-mono text-stone-500 bg-stone-100 px-2 py-0.5 rounded">
-                            {member.region}
+                            {regionLabel(member.region)}
                           </span>
                         </div>
                         <h4 className="font-serif font-bold text-base sm:text-lg text-stone-900 mb-1">
@@ -372,7 +359,7 @@ export function InternationalNetworkSection() {
                           {member.country}
                         </span>
                         <span className="text-[11px] font-semibold text-[#8B1E24]">
-                          Investigador Doctoral Vinculado
+                          {t.network.roleDoctoral}
                         </span>
                       </div>
                     </div>
@@ -386,7 +373,7 @@ export function InternationalNetworkSection() {
         {filteredMembers.length === 0 && (
           <div className="text-center py-12 bg-white rounded-lg border border-stone-200">
             <Users className="w-8 h-8 text-stone-400 mx-auto mb-2" />
-            <p className="text-stone-700 font-medium">No se encontraron miembros con los filtros seleccionados.</p>
+            <p className="text-stone-700 font-medium">{t.network.noResults}</p>
             <button
               type="button"
               onClick={() => {
@@ -396,7 +383,7 @@ export function InternationalNetworkSection() {
               }}
               className="mt-3 text-xs text-[#8B1E24] underline cursor-pointer"
             >
-              Restablecer todos los filtros
+              {t.network.resetFilters}
             </button>
           </div>
         )}
@@ -405,4 +392,3 @@ export function InternationalNetworkSection() {
     </section>
   );
 }
-

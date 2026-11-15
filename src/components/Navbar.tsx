@@ -1,29 +1,68 @@
 import { useState } from 'react';
-import { Layers, Mail, Menu, X } from 'lucide-react';
+import { Globe, Layers, Mail, Menu, X } from 'lucide-react';
+import { useLang } from '../i18n/LanguageContext';
 
 interface NavbarProps {
   onOpenGoogleSitesModal: () => void;
   onOpenContactModal: () => void;
 }
 
+function LangSwitch({ compact = false }: { compact?: boolean }) {
+  const { lang, setLang, t } = useLang();
+  return (
+    <div
+      className={`inline-flex items-center rounded-md border border-stone-700 overflow-hidden ${compact ? '' : 'shrink-0'}`}
+      role="group"
+      aria-label={t.langSwitch.label}
+    >
+      <span className="hidden xl:flex items-center pl-2 pr-1 text-stone-400" aria-hidden="true">
+        <Globe className="w-3.5 h-3.5" />
+      </span>
+      <button
+        type="button"
+        onClick={() => setLang('es')}
+        aria-pressed={lang === 'es'}
+        title={t.langSwitch.toSpanish}
+        className={`px-2.5 py-1 text-xs font-semibold tracking-wide transition-colors cursor-pointer ${
+          lang === 'es' ? 'bg-[#8B1E24] text-white' : 'text-stone-300 hover:text-white hover:bg-stone-800'
+        }`}
+      >
+        ES
+      </button>
+      <button
+        type="button"
+        onClick={() => setLang('en')}
+        aria-pressed={lang === 'en'}
+        title={t.langSwitch.toEnglish}
+        className={`px-2.5 py-1 text-xs font-semibold tracking-wide transition-colors cursor-pointer border-l border-stone-700 ${
+          lang === 'en' ? 'bg-[#8B1E24] text-white' : 'text-stone-300 hover:text-white hover:bg-stone-800'
+        }`}
+      >
+        EN
+      </button>
+    </div>
+  );
+}
+
 export function Navbar({ onOpenGoogleSitesModal, onOpenContactModal }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t } = useLang();
 
   const navLinks = [
-    { label: 'Presentación', href: '#presentacion', external: false },
-    { label: 'Líneas', href: '#lineas', external: false },
-    { label: 'Equipo', href: '#equipo', external: false },
-    { label: 'Red Internacional', href: '#colaboradores', external: false },
-    { label: 'Actividades', href: '#actividades', external: false },
-    { label: 'Ficha Oficial', href: '#datos', external: false },
-    { label: 'Grupo Órexis', href: 'https://portalcientifico.unav.edu/grupos/62169/detalle', external: true },
+    { label: t.nav.overview, href: '#presentacion', external: false },
+    { label: t.nav.lines, href: '#lineas', external: false },
+    { label: t.nav.team, href: '#equipo', external: false },
+    { label: t.nav.network, href: '#colaboradores', external: false },
+    { label: t.nav.activities, href: '#actividades', external: false },
+    { label: t.nav.officialRecord, href: '#datos', external: false },
+    { label: t.nav.orexisGroup, href: 'https://portalcientifico.unav.edu/grupos/62169/detalle', external: true },
   ];
 
   return (
     <header className="sticky top-0 z-40 bg-[#2B2927] border-b border-stone-700 text-stone-100 shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-8 h-18">
-          
+        <div className="flex items-center justify-between gap-6 h-18">
+
           {/* Zone 1: Single text wordmark */}
           <a
             href="#"
@@ -39,7 +78,7 @@ export function Navbar({ onOpenGoogleSitesModal, onOpenContactModal }: NavbarPro
 
           {/* Zone 2: 4-6 concise text nav links */}
           <nav
-            aria-label="Navegación principal"
+            aria-label={t.nav.mainNav}
             className="hidden lg:flex items-center gap-6 text-sm font-medium text-stone-300"
           >
             {navLinks.map((link) => (
@@ -55,22 +94,26 @@ export function Navbar({ onOpenGoogleSitesModal, onOpenContactModal }: NavbarPro
             ))}
           </nav>
 
-          {/* Zone 3: Contacto CTA */}
-          <a
-            href="#contacto"
-            className="hidden lg:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded bg-[#8B1E24] hover:bg-[#6C151A] text-white text-sm font-semibold transition-colors whitespace-nowrap shrink-0"
-          >
-            <Mail className="w-4 h-4" />
-            <span>Contacto</span>
-          </a>
+          {/* Zone 3: Language switch + Contacto CTA */}
+          <div className="hidden lg:flex items-center gap-3 shrink-0">
+            <LangSwitch />
+            <a
+              href="#contacto"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded bg-[#8B1E24] hover:bg-[#6C151A] text-white text-sm font-semibold transition-colors whitespace-nowrap"
+            >
+              <Mail className="w-4 h-4" />
+              <span>{t.nav.contact}</span>
+            </a>
+          </div>
 
-          {/* Mobile hamburger button */}
-          <div className="lg:hidden flex items-center shrink-0">
+          {/* Mobile cluster: language switch + hamburger */}
+          <div className="lg:hidden flex items-center gap-2 shrink-0">
+            <LangSwitch compact />
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 text-stone-300 hover:text-white focus:outline-none cursor-pointer"
-              aria-label={mobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
+              aria-label={mobileMenuOpen ? t.nav.closeMenu : t.nav.openMenu}
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -107,7 +150,7 @@ export function Navbar({ onOpenGoogleSitesModal, onOpenContactModal }: NavbarPro
               className="w-full flex items-center justify-center gap-2 px-4 py-2 text-xs font-medium text-stone-200 bg-stone-800 rounded border border-stone-700"
             >
               <Layers className="w-4 h-4 text-red-400" />
-              <span>Guía de inserción en Google Sites</span>
+              <span>{t.nav.googleSitesGuide}</span>
             </button>
 
             <a
@@ -116,7 +159,7 @@ export function Navbar({ onOpenGoogleSitesModal, onOpenContactModal }: NavbarPro
               className="w-full flex items-center justify-center gap-2 px-4 py-2 text-xs font-semibold text-white bg-[#8B1E24] rounded"
             >
               <Mail className="w-4 h-4" />
-              <span>Contacto</span>
+              <span>{t.nav.contact}</span>
             </a>
           </div>
         </div>
