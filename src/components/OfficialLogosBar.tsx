@@ -30,15 +30,12 @@ export function OfficialLogosBar() {
           </div>
 
           {/* 2. AEI - Agencia Estatal de Investigación - Centrado bajo "7 Investigadores" */}
-          <div className="flex flex-col items-center justify-center py-1 gap-1.5">
+          <div className="flex items-center justify-center py-1">
             <img
               src="assets/aistudio/aei_logo.png"
               alt="Agencia Estatal de Investigación (AEI)"
-              className="h-10 sm:h-12 w-auto object-contain"
+              className="h-12 sm:h-14 w-auto object-contain"
             />
-            <span className="font-mono text-stone-500" style={{ fontSize: '12px' }}>
-              PID2025-168764NB-I00
-            </span>
           </div>
 
           {/* 3. Unión Europea - Centrado bajo "17 Expertos" */}

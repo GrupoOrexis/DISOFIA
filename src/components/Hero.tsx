@@ -28,7 +28,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
   const imageFilterStyle = { filter: 'grayscale(92%) contrast(1.28) brightness(0.92) saturate(0.1)' };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#F4F3F0] via-[#ECEBE7] to-[#E3E2DE] text-slate-800 border-b-4 border-[#8B1E24]">
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#F4F3F0] via-[#ECEBE7] to-[#E3E2DE] text-slate-800">
       {/* Subtle classical texture on background */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -39,7 +39,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
         aria-hidden="true"
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-8 sm:pt-10 pb-6 sm:pb-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-8 sm:pt-10 pb-3 sm:pb-4">
         
         {/* Classical Frieze of Socrates across the Hero, positioned directly above the Project Title */}
         <figure className="w-full mb-6 sm:mb-8">
@@ -196,45 +196,49 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
           </div>
         </div>
 
-        {/* Barra de navegación: botones en granate sobre barra blanca semitransparente */}
-        <div className="w-full grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-1 bg-white/60 rounded-lg px-2 py-1 mt-5">
-          <button
-            type="button"
-            onClick={() => scrollToTarget('presentacion')}
-            className="w-full h-9 flex items-center justify-center gap-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold uppercase tracking-wide text-[#8B1E24] hover:underline decoration-slate-700 decoration-2 underline-offset-4 transition-colors cursor-pointer"
-          >
-            <BookOpen className="w-4 h-4 text-[#8B1E24] shrink-0" />
-            <span className="truncate">Presentación</span>
-          </button>
+      </div>
 
-          <button
-            type="button"
-            onClick={() => scrollToTarget('lineas')}
-            className="w-full h-9 flex items-center justify-center gap-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold uppercase tracking-wide text-[#8B1E24] hover:underline decoration-slate-700 decoration-2 underline-offset-4 transition-colors cursor-pointer"
-          >
-            <Compass className="w-4 h-4 text-[#8B1E24] shrink-0" />
-            <span className="truncate">Líneas de investigación</span>
-          </button>
+      {/* Franja granate separadora con la navegación integrada (texto e iconos en blanco) */}
+      <div className="relative z-10 bg-[#8B1E24]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-1 py-1.5">
+            <button
+              type="button"
+              onClick={() => scrollToTarget('presentacion')}
+              className="w-full h-9 flex items-center justify-center gap-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold uppercase tracking-wide text-white hover:underline decoration-white decoration-2 underline-offset-4 transition-colors cursor-pointer"
+            >
+              <BookOpen className="w-4 h-4 text-white shrink-0" />
+              <span className="truncate">Presentación</span>
+            </button>
 
-          <button
-            type="button"
-            onClick={() => scrollToTarget('equipo')}
-            className="w-full h-9 flex items-center justify-center gap-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold uppercase tracking-wide text-[#8B1E24] hover:underline decoration-slate-700 decoration-2 underline-offset-4 transition-colors cursor-pointer"
-          >
-            <Users className="w-4 h-4 text-[#8B1E24] shrink-0" />
-            <span className="truncate">Equipo de investigación</span>
-          </button>
+            <button
+              type="button"
+              onClick={() => scrollToTarget('lineas')}
+              className="w-full h-9 flex items-center justify-center gap-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold uppercase tracking-wide text-white hover:underline decoration-white decoration-2 underline-offset-4 transition-colors cursor-pointer"
+            >
+              <Compass className="w-4 h-4 text-white shrink-0" />
+              <span className="truncate">Líneas de investigación</span>
+            </button>
 
-          <button
-            type="button"
-            onClick={() => scrollToTarget('actividades')}
-            className="w-full h-9 flex items-center justify-center gap-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold uppercase tracking-wide text-[#8B1E24] hover:underline decoration-slate-700 decoration-2 underline-offset-4 transition-colors cursor-pointer"
-          >
-            <Calendar className="w-4 h-4 text-[#8B1E24] shrink-0" />
-            <span className="truncate">Actividades</span>
-          </button>
+            <button
+              type="button"
+              onClick={() => scrollToTarget('equipo')}
+              className="w-full h-9 flex items-center justify-center gap-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold uppercase tracking-wide text-white hover:underline decoration-white decoration-2 underline-offset-4 transition-colors cursor-pointer"
+            >
+              <Users className="w-4 h-4 text-white shrink-0" />
+              <span className="truncate">Equipo de investigación</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => scrollToTarget('actividades')}
+              className="w-full h-9 flex items-center justify-center gap-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold uppercase tracking-wide text-white hover:underline decoration-white decoration-2 underline-offset-4 transition-colors cursor-pointer"
+            >
+              <Calendar className="w-4 h-4 text-white shrink-0" />
+              <span className="truncate">Actividades</span>
+            </button>
+          </div>
         </div>
-
       </div>
 
       {/* Modal for Full-Scale Canova Horizontal Bas-Relief */}
