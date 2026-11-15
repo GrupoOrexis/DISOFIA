@@ -122,9 +122,10 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
 
           {/* Identificador del proyecto, centrado bajo el subtítulo */}
           <div
-            className="inline-flex items-center justify-center gap-2 bg-white/70 px-3 py-1 rounded-md mt-6"
+            className="inline-flex items-center justify-center gap-2 mt-6"
             style={{ fontSize: '14px', fontFamily: '"Plus Jakarta Sans", sans-serif' }}
           >
+            <span className="text-black font-bold" aria-hidden="true">(</span>
             <span className="uppercase tracking-widest text-[#8B1E24] font-bold">
               {metadata.acronym}
             </span>
@@ -132,6 +133,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
             <span className="text-[#1A1A1A] font-normal">
               {metadata.reference}
             </span>
+            <span className="text-black font-bold" aria-hidden="true">)</span>
           </div>
         </div>
 
