@@ -64,13 +64,11 @@ export function OfficialLogosBar() {
           {/* 4. Universidad de Navarra - Centrado bajo "5 Investigadores" */}
           <div className="flex items-center justify-center py-1">
             <div className="flex items-center gap-3 text-left">
-              <div className="h-10 sm:h-11 w-9 sm:w-10 rounded-md bg-white border border-stone-200 shadow-xs flex items-center justify-center p-1 shrink-0">
-                <img
-                  src="assets/aistudio/unav_seal_red.png"
-                  alt="Escudo de la Universidad de Navarra"
-                  className="h-full w-auto object-contain"
-                />
-              </div>
+              <img
+                src="assets/aistudio/unav_seal_red.png"
+                alt="Escudo de la Universidad de Navarra"
+                className="h-12 sm:h-14 w-auto object-contain shrink-0"
+              />
               <div className="flex flex-col">
                 <span className="font-bold text-stone-900 tracking-tight leading-tight" style={{ fontSize: '14px' }}>
                   Universidad de Navarra
