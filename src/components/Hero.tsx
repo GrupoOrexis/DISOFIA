@@ -144,16 +144,6 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
             </span>
             <span className="text-black font-bold" aria-hidden="true">)</span>
           </div>
-
-          {/* Línea fina negra bajo la etiqueta DISOFIA, del mismo ancho que la imagen/título */}
-          <div
-            aria-hidden="true"
-            style={{
-              width: titleWidth ? `${titleWidth}px` : eyebrowWidth ? `${eyebrowWidth}px` : undefined,
-              height: '0.5px',
-            }}
-            className="max-w-full bg-black mt-12 mx-auto"
-          />
         </div>
 
         {/* Quantitative Project Indicators Strip: clean text with red dividers */}
