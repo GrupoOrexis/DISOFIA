@@ -45,7 +45,10 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
   const imageFilterStyle = { filter: 'grayscale(92%) contrast(1.28) brightness(0.92) saturate(0.1)' };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[#F5F5F7] via-[#EAEBEF] to-[#DFE0E6] text-slate-800">
+    <section
+      className="relative overflow-hidden bg-gradient-to-br from-[#F5F5F7] via-[#EAEBEF] to-[#DFE0E6] text-slate-800"
+      style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
+    >
 
       <div className="relative">
         {/* Trama de líneas diagonales (grises y ocres) sobre el fondo, detrás del texto */}
@@ -63,7 +66,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
           <button
             type="button"
             onClick={() => setImageModalOpen(true)}
-            className="inline-flex items-center gap-1.5 text-[11px] font-mono text-stone-500 hover:text-stone-700 transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 text-[11px] text-stone-500 hover:text-stone-700 transition-colors cursor-pointer"
             title={t.hero.exploreImage}
           >
             <Eye className="w-3.5 h-3.5" />
@@ -76,16 +79,6 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
         {/* Project Title and Header Presentation */}
         <div className="w-full mb-4 text-center flex flex-col items-center">
           <div className="w-full flex flex-col items-center">
-            {/* Fragmento del relieve de Canova (Sócrates y las figuras que lo miran), mismo ancho que el antetítulo */}
-            <img
-              src="assets/aistudio/hero-socrates-frag.jpg"
-              alt="Fragmento del relieve de Canova: Sócrates y las figuras que lo observan"
-              style={{
-                width: eyebrowWidth ? `${eyebrowWidth}px` : undefined,
-                filter: 'grayscale(100%) contrast(0.82) brightness(1.1)',
-              }}
-              className="h-auto max-w-full mb-3 mx-auto select-none border border-black/10"
-            />
             <div
               ref={eyebrowRef}
               className="tracking-widest uppercase font-semibold my-2 text-center flex items-center justify-center gap-3"
@@ -100,6 +93,16 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
               <span>{t.hero.eyebrow} &middot; {metadata.period}</span>
               <span className="inline-block w-8 sm:w-10 h-[1.5px] bg-[#1A1A1A]/50" aria-hidden="true" />
             </div>
+            {/* Fragmento del relieve de Canova (pies de Sócrates), entre el antetítulo y el título */}
+            <img
+              src="assets/aistudio/hero-socrates-frag.jpg"
+              alt="Fragmento del relieve de Canova: pies de Sócrates"
+              style={{
+                width: eyebrowWidth ? `${eyebrowWidth}px` : undefined,
+                filter: 'grayscale(100%) contrast(1.2) brightness(1.0)',
+              }}
+              className="h-auto max-w-full mt-2 mb-3 mx-auto select-none border-b-[3px] border-black"
+            />
 
             <h1
               className="font-serif font-bold text-[#1E293B] tracking-tight leading-[1.1] w-full text-center"
@@ -140,10 +143,10 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
               <div className="text-2xl sm:text-3xl font-serif font-bold text-[#1E293B] tabular-nums text-center">
                 3 {t.hero.years}
               </div>
-              <div className="text-xs text-[#1A1A1A] uppercase tracking-wider mt-1 font-mono text-center">
+              <div className="text-xs text-[#1A1A1A] uppercase tracking-wider mt-1 text-center font-bold">
                 {t.hero.yearsSub}
               </div>
-              <div className="text-[11px] text-[#1A1A1A] mt-0.5 text-center">
+              <div className="text-[11px] text-[#1A1A1A] mt-0.5 text-center font-bold">
                 {t.hero.nonOriented}
               </div>
               {/* Red vertical divider */}
@@ -158,10 +161,10 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
               <div className="text-2xl sm:text-3xl font-serif font-bold text-[#1E293B] tabular-nums text-center">
                 12 {t.hero.researchers}
               </div>
-              <div className="text-xs text-[#1A1A1A] uppercase tracking-wider mt-1 font-mono text-center">
+              <div className="text-xs text-[#1A1A1A] uppercase tracking-wider mt-1 text-center font-bold">
                 {t.hero.researchersSub}
               </div>
-              <div className="text-[11px] text-[#1A1A1A] mt-0.5 text-center">
+              <div className="text-[11px] text-[#1A1A1A] mt-0.5 text-center font-bold">
                 {t.hero.linkedToProject}
               </div>
               {/* Red vertical divider on desktop */}
@@ -176,10 +179,10 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
               <div className="text-2xl sm:text-3xl font-serif font-bold text-[#1E293B] tabular-nums text-center">
                 17 {t.hero.experts}
               </div>
-              <div className="text-xs text-[#1A1A1A] uppercase tracking-wider mt-1 font-mono text-center">
+              <div className="text-xs text-[#1A1A1A] uppercase tracking-wider mt-1 text-center font-bold">
                 {t.hero.international}
               </div>
-              <div className="text-[11px] text-[#1A1A1A] mt-0.5 text-center">
+              <div className="text-[11px] text-[#1A1A1A] mt-0.5 text-center font-bold">
                 {t.hero.from10Countries}
               </div>
               {/* Red vertical divider */}
@@ -194,10 +197,10 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
               <div className="text-2xl sm:text-3xl font-serif font-bold text-[#1E293B] tabular-nums text-center">
                 49.000 €
               </div>
-              <div className="text-xs text-[#1A1A1A] uppercase tracking-wider mt-1 font-mono text-center">
+              <div className="text-xs text-[#1A1A1A] uppercase tracking-wider mt-1 text-center font-bold">
                 {t.hero.budget}
               </div>
-              <div className="text-[11px] text-[#1A1A1A] mt-0.5 text-center">
+              <div className="text-[11px] text-[#1A1A1A] mt-0.5 text-center font-bold">
                 {t.hero.projectFunding}
               </div>
             </div>
@@ -321,7 +324,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
                   </span>
                 </div>
               </div>
-              <div className="flex flex-wrap items-center justify-between text-[11px] text-stone-500 font-mono px-1 pt-0.5">
+              <div className="flex flex-wrap items-center justify-between text-[11px] text-stone-500 px-1 pt-0.5">
                 <span>{t.hero.modalCaptionLeft}</span>
                 <span>DISOFIA &middot; Universidad de Navarra (PID2025-168764NB-I00)</span>
               </div>

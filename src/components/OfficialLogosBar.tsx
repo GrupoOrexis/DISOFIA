@@ -34,11 +34,21 @@ export function OfficialLogosBar() {
 
           {/* 2. AEI - Agencia Estatal de Investigación */}
           <div className="flex items-center justify-center py-1">
-            <img
-              src="assets/aistudio/aei_logo.png"
-              alt={t.logos.aeiAlt}
-              className="h-12 sm:h-14 w-auto object-contain"
-            />
+            <div className="flex items-center gap-3 text-left">
+              <img
+                src="assets/aistudio/aei_emblem.png"
+                alt={t.logos.aeiAlt}
+                className="h-12 sm:h-14 w-auto object-contain shrink-0"
+              />
+              <div className="flex flex-col">
+                <span className="font-bold text-stone-900 tracking-tight leading-tight" style={{ fontSize: '14px' }}>
+                  {t.logos.aeiName1}
+                </span>
+                <span className="text-stone-600 leading-tight" style={{ fontSize: '14px' }}>
+                  {t.logos.aeiName2}
+                </span>
+              </div>
+            </div>
           </div>
 
           {/* 3. Unión Europea */}
