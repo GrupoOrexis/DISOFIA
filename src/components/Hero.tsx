@@ -16,12 +16,20 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
   const t = useT();
   const { metadata } = useDisofiaData();
 
-  // Mide el ancho del antetítulo (texto + guiones) para igualar la imagen superior
+  // Mide el ancho del antetítulo y del título para dimensionar la imagen superior
   const eyebrowRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
   const [eyebrowWidth, setEyebrowWidth] = useState<number | undefined>(undefined);
+  const [titleWidth, setTitleWidth] = useState<number | undefined>(undefined);
   useLayoutEffect(() => {
     const measure = () => {
       if (eyebrowRef.current) setEyebrowWidth(eyebrowRef.current.offsetWidth);
+      if (titleRef.current) {
+        const range = document.createRange();
+        range.selectNodeContents(titleRef.current);
+        const w = range.getBoundingClientRect().width;
+        if (w) setTitleWidth(w);
+      }
     };
     measure();
     window.addEventListener('resize', measure);
@@ -95,16 +103,17 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
             </div>
             {/* Fragmento del relieve de Canova (pies de Sócrates), entre el antetítulo y el título */}
             <img
-              src="assets/aistudio/hero-socrates-frag.jpg"
+              src="assets/aistudio/hero-socrates-frag-wide.jpg"
               alt="Fragmento del relieve de Canova: pies de Sócrates"
               style={{
-                width: eyebrowWidth ? `${eyebrowWidth}px` : undefined,
+                width: titleWidth ? `${titleWidth}px` : eyebrowWidth ? `${eyebrowWidth}px` : undefined,
                 filter: 'grayscale(100%) contrast(1.2) brightness(1.0)',
               }}
               className="h-auto max-w-full mt-2 mb-8 mx-auto select-none border-b-[3px] border-black"
             />
 
             <h1
+              ref={titleRef}
               className="font-serif font-bold text-[#1E293B] tracking-tight leading-[1.1] w-full text-center"
               style={{ fontSize: '65px' }}
             >
