@@ -74,7 +74,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
           </button>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-10 sm:pt-12 pb-8 sm:pb-10 min-h-[300px] sm:min-h-[340px] flex flex-col justify-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-6 sm:pt-8 pb-8 sm:pb-10 min-h-[300px] sm:min-h-[340px] flex flex-col justify-center">
 
         {/* Project Title and Header Presentation */}
         <div className="w-full mb-4 text-center flex flex-col items-center">
@@ -101,7 +101,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
                 width: eyebrowWidth ? `${eyebrowWidth}px` : undefined,
                 filter: 'grayscale(100%) contrast(1.2) brightness(1.0)',
               }}
-              className="h-auto max-w-full mt-2 mb-3 mx-auto select-none border-b-[3px] border-black"
+              className="h-auto max-w-full mt-2 mb-8 mx-auto select-none border-b-[3px] border-black"
             />
 
             <h1
@@ -122,7 +122,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
 
           {/* Identificador del proyecto, centrado bajo el subtítulo */}
           <div
-            className="inline-flex items-center justify-center gap-2 bg-white px-3 py-1 rounded-md mt-4"
+            className="inline-flex items-center justify-center gap-2 bg-white/70 px-3 py-1 rounded-md mt-6"
             style={{ fontSize: '14px', fontFamily: '"Plus Jakarta Sans", sans-serif' }}
           >
             <span className="uppercase tracking-widest text-[#8B1E24] font-bold">
@@ -143,7 +143,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
               <div className="text-2xl sm:text-3xl font-serif font-bold text-[#1E293B] tabular-nums text-center">
                 3 {t.hero.years}
               </div>
-              <div className="text-xs text-[#1A1A1A] uppercase tracking-wider mt-1 text-center font-bold">
+              <div className="text-xs text-[#6B7280] uppercase tracking-wider mt-1 text-center font-bold">
                 {t.hero.yearsSub}
               </div>
               <div className="text-[11px] text-[#1A1A1A] mt-0.5 text-center font-bold">
@@ -161,7 +161,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
               <div className="text-2xl sm:text-3xl font-serif font-bold text-[#1E293B] tabular-nums text-center">
                 12 {t.hero.researchers}
               </div>
-              <div className="text-xs text-[#1A1A1A] uppercase tracking-wider mt-1 text-center font-bold">
+              <div className="text-xs text-[#6B7280] uppercase tracking-wider mt-1 text-center font-bold">
                 {t.hero.researchersSub}
               </div>
               <div className="text-[11px] text-[#1A1A1A] mt-0.5 text-center font-bold">
@@ -179,7 +179,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
               <div className="text-2xl sm:text-3xl font-serif font-bold text-[#1E293B] tabular-nums text-center">
                 17 {t.hero.experts}
               </div>
-              <div className="text-xs text-[#1A1A1A] uppercase tracking-wider mt-1 text-center font-bold">
+              <div className="text-xs text-[#6B7280] uppercase tracking-wider mt-1 text-center font-bold">
                 {t.hero.international}
               </div>
               <div className="text-[11px] text-[#1A1A1A] mt-0.5 text-center font-bold">
@@ -197,7 +197,7 @@ export function Hero({ onExploreLines, onExploreSeminar, onNavigate }: HeroProps
               <div className="text-2xl sm:text-3xl font-serif font-bold text-[#1E293B] tabular-nums text-center">
                 49.000 €
               </div>
-              <div className="text-xs text-[#1A1A1A] uppercase tracking-wider mt-1 text-center font-bold">
+              <div className="text-xs text-[#6B7280] uppercase tracking-wider mt-1 text-center font-bold">
                 {t.hero.budget}
               </div>
               <div className="text-[11px] text-[#1A1A1A] mt-0.5 text-center font-bold">

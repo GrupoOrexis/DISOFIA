@@ -98,9 +98,10 @@ export function Navbar(_props: NavbarProps) {
             <LangSwitch />
             <a
               href="#contacto"
-              className="text-[#8B1E24] hover:text-[#6C151A] text-sm font-semibold transition-colors whitespace-nowrap hover:underline underline-offset-4 decoration-2"
+              className="inline-flex items-center gap-1.5 text-white hover:text-stone-200 text-sm font-semibold uppercase tracking-wide transition-colors whitespace-nowrap hover:underline underline-offset-4 decoration-2"
             >
-              {t.nav.contact}
+              <Mail className="w-4 h-4" />
+              <span>{t.nav.contact}</span>
             </a>
           </div>
 
